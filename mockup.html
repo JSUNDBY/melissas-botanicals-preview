@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melissa's Botanicals — Redesign Mockup</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-red: #b2292e;
+      --brand-dark: #1a1a1a;
+      --brand-cream: #faf8f5;
+      --brand-warm: #f5f0eb;
+      --text-primary: #2c2c2c;
+      --text-secondary: #6b6b6b;
+      --border: #e5e0db;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--text-primary);
+      background: var(--brand-cream);
+      line-height: 1.6;
+    }
+
+    /* === BANNER === */
+    .mockup-banner {
+      background: var(--brand-dark);
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+    .mockup-banner strong { color: var(--brand-red); }
+
+    /* === HEADER === */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      letter-spacing: 1px;
+    }
+    .logo span { color: var(--brand-red); }
+
+    .tagline {
+      font-size: 11px;
+      color: var(--text-secondary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--brand-red); }
+    nav a.active { color: var(--brand-red); font-weight: 500; }
+
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px; right: -10px;
+      background: var(--brand-red);
+      color: white;
+      font-size: 10px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    /* === HERO === */
+    .page-hero {
+      background: linear-gradient(135deg, var(--brand-warm) 0%, white 100%);
+      padding: 60px 40px 50px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: var(--brand-dark);
+    }
+    .page-hero p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* === SEARCH & FILTERS === */
+    .toolbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 40px 10px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      background: white;
+      transition: border-color 0.2s;
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--brand-red);
+    }
+    .search-box::before {
+      content: "\1F50D";
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      opacity: 0.4;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      background: white;
+      transition: all 0.2s;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+    .pill:hover { border-color: var(--brand-red); color: var(--brand-red); }
+    .pill.active {
+      background: var(--brand-red);
+      color: white;
+      border-color: var(--brand-red);
+    }
+
+    .result-count {
+      width: 100%;
+      padding: 10px 0 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* === PRODUCT GRID === */
+    .product-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 40px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .product-image {
+      aspect-ratio: 1;
+      background: var(--brand-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      position: relative;
+    }
+    .product-image img {
+      max-width: 70%;
+      max-height: 70%;
+      object-fit: contain;
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--brand-red);
+      color: white;
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+    .product-category {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--brand-red);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--brand-dark);
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--brand-dark);
+    }
+    .product-price .from {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+
+    .add-btn {
+      padding: 10px 20px;
+      background: var(--brand-dark);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .add-btn:hover { background: var(--brand-red); }
+
+    /* === PRODUCT DETAIL MODAL === */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: white;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-image {
+      background: var(--brand-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      min-height: 400px;
+    }
+    .modal-image .placeholder-bottle {
+      font-size: 120px;
+      opacity: 0.6;
+    }
+
+    .modal-details {
+      padding: 40px;
+    }
+    .modal-details .product-category { margin-bottom: 8px; }
+    .modal-details h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .modal-details .price {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .modal-details .description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .size-options {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .size-option {
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      background: white;
+      transition: all 0.2s;
+    }
+    .size-option:hover { border-color: var(--brand-red); }
+    .size-option.selected {
+      border-color: var(--brand-red);
+      background: #fef2f2;
+      color: var(--brand-red);
+      font-weight: 500;
+    }
+
+    .modal-add-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--brand-red);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 16px;
+    }
+    .modal-add-btn:hover { background: #911f23; }
+
+    .modal-details .guarantee {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 10;
+    }
+
+    /* === COMPARISON SECTION === */
+    .comparison {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 40px;
+    }
+    .comparison h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .comparison-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .comparison-card.before { background: #f0ecec; }
+    .comparison-card.after { background: white; }
+
+    .comparison-label {
+      padding: 14px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .before .comparison-label { background: #e0dada; color: #666; }
+    .after .comparison-label { background: var(--brand-red); color: white; }
+
+    .comparison-content {
+      padding: 24px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .comparison-content li {
+      margin-bottom: 8px;
+      list-style: none;
+      padding-left: 24px;
+      position: relative;
+    }
+    .before .comparison-content li::before { content: "\2717"; position: absolute; left: 0; color: #c00; }
+    .after .comparison-content li::before { content: "\2713"; position: absolute; left: 0; color: #0a0; }
+
+    /* === VALUE PROPS === */
+    .value-section {
+      background: var(--brand-dark);
+      color: white;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .value-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 400;
+      margin-bottom: 50px;
+    }
+    .value-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .value-item {
+      text-align: center;
+    }
+    .value-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .value-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .value-item p {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* === FOOTER === */
+    footer {
+      padding: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+      nav { gap: 16px; }
+      nav a { font-size: 13px; }
+      .page-hero { padding: 40px 20px 30px; }
+      .page-hero h1 { font-size: 30px; }
+      .toolbar { padding: 20px 20px 10px; }
+      .product-grid { padding: 20px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+      .modal { grid-template-columns: 1fr; }
+      .modal-image { min-height: 250px; padding: 40px; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOCKUP BANNER -->
+  <div class="mockup-banner">
+    <strong>MOCKUP</strong> &mdash; This is a redesign concept for melissasbotanicals.com. Not a live site.
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div class="logo">Melissa's <span>Botanicals</span></div>
+      <div class="tagline">Organic French Medical Aromatherapy</div>
+    </div>
+    <nav>
+      <a href="#" class="active">Shop All</a>
+      <a href="#">Formulas</a>
+      <a href="#">Essential Oils</a>
+      <a href="#">Hydrosols</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <div class="cart-icon">
+        &#128722;
+        <span class="cart-count">2</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <h1>Medicinal Formulas</h1>
+    <p>55+ expertly formulated blends backed by 30 years of clinical aromatherapy practice. 100% certified organic.</p>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="search-box">
+      <input type="text" placeholder="Search formulas..." id="searchInput" oninput="filterProducts()">
+    </div>
+    <div class="filter-pills">
+      <button class="pill active" onclick="setFilter('all', this)">All</button>
+      <button class="pill" onclick="setFilter('pain', this)">Pain Relief</button>
+      <button class="pill" onclick="setFilter('skin', this)">Skin Care</button>
+      <button class="pill" onclick="setFilter('facial', this)">Facial</button>
+      <button class="pill" onclick="setFilter('wellness', this)">Wellness</button>
+      <button class="pill" onclick="setFilter('deodorant', this)">Deodorant</button>
+    </div>
+    <div class="result-count" id="resultCount">Showing 35 products</div>
+  </div>
+
+  <!-- PRODUCT GRID -->
+  <div class="product-grid" id="productGrid"></div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-image">
+        <div class="placeholder-bottle" id="modalEmoji">&#129514;</div>
+      </div>
+      <div class="modal-details">
+        <div class="product-category" id="modalCategory">FORMULA</div>
+        <h2 id="modalName">P*!N Remedy</h2>
+        <div class="price" id="modalPrice">$38.00</div>
+        <div class="description" id="modalDesc">
+          Our signature pain relief formula combines therapeutic-grade essential oils clinically shown to reduce inflammation and ease muscle tension. Applied topically for fast-acting relief.
+        </div>
+        <div style="font-size:13px;font-weight:500;margin-bottom:10px;">Size</div>
+        <div class="size-options">
+          <button class="size-option selected">5ml Roll-On</button>
+          <button class="size-option">8ml Roll-On</button>
+          <button class="size-option">Lotion 4oz</button>
+        </div>
+        <button class="modal-add-btn">Add to Cart</button>
+        <div class="guarantee">100% Satisfaction Guarantee &bull; Free shipping on orders $50+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEFORE/AFTER COMPARISON -->
+  <div class="comparison">
+    <h2>What Changes With the Redesign</h2>
+    <div class="comparison-grid">
+      <div class="comparison-card before">
+        <div class="comparison-label">Current Site</div>
+        <div class="comparison-content">
+          <ul>
+            <li>Adding a product requires editing page builder layouts</li>
+            <li>Each product page is manually designed one-by-one</li>
+            <li>No search or filtering for 100+ products</li>
+            <li>Custom CSS patches hold the layout together</li>
+            <li>Need to call developer for every change</li>
+            <li>Mobile layout has responsive issues</li>
+          </ul>
+        </div>
+      </div>
+      <div class="comparison-card after">
+        <div class="comparison-label">After Redesign</div>
+        <div class="comparison-content">
+          <ul>
+            <li>Add a product in 5 minutes from the dashboard</li>
+            <li>Every product automatically uses the same clean template</li>
+            <li>Customers can search and filter by category</li>
+            <li>Clean, maintainable code &mdash; no hacks</li>
+            <li>Full independence &mdash; no developer needed</li>
+            <li>Looks great on every device</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE SECTION -->
+  <div class="value-section">
+    <h2>What You Get</h2>
+    <div class="value-grid">
+      <div class="value-item">
+        <div class="value-icon">&#9997;</div>
+        <h3>Full Control</h3>
+        <p>Add, edit, or remove products yourself. No developer calls, no waiting, no extra charges.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">&#128241;</div>
+        <h3>Mobile-First</h3>
+        <p>Looks beautiful on phones, tablets, and desktops. Your customers shop from everywhere.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">&#128270;</div>
+        <h3>Smart Catalog</h3>
+        <p>Search, filter, and browse 100+ products with ease. Customers find what they need fast.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Redesign concept prepared for Melissa's Botanicals &mdash; March 2026
+  </footer>
+
+  <script>
+    const products = [
+      { name: "P*!N Remedy", cat: "pain", price: 38, badge: "Best Seller", desc: "Signature pain relief roll-on for muscle tension and inflammation.", emoji: "&#129514;" },
+      { name: "P*!N Remedy Lotion", cat: "pain", price: 42, desc: "Extra-strength pain relief in a soothing lotion formula.", emoji: "&#129514;" },
+      { name: "P*!N Remedy Extra Strength", cat: "pain", price: 48, badge: "New", desc: "Maximum strength formula for chronic and acute pain.", emoji: "&#129514;" },
+      { name: "Acne Solution", cat: "skin", price: 32, desc: "Targeted treatment for breakouts using organic tea tree and lavender.", emoji: "&#127807;" },
+      { name: "Acne Amplified", cat: "skin", price: 36, badge: "New", desc: "Advanced formula for persistent acne with enhanced essential oil concentration.", emoji: "&#127807;" },
+      { name: "Eczema Relief", cat: "skin", price: 34, desc: "Calming blend to soothe irritated, inflamed skin naturally.", emoji: "&#127807;" },
+      { name: "Cold Sore Relief", cat: "skin", price: 28, desc: "Fast-acting topical formula for cold sore outbreaks.", emoji: "&#127807;" },
+      { name: "Scar Solution", cat: "skin", price: 35, desc: "Roll-on blend to reduce the appearance of scars over time.", emoji: "&#127807;" },
+      { name: "Facial Rejuvenation Serum", cat: "facial", price: 65, badge: "Popular", desc: "Anti-aging serum with rare essential oils for radiant, youthful skin.", emoji: "&#127802;" },
+      { name: "Facial Rejuvenation Kit", cat: "facial", price: 525, badge: "Premium", desc: "Complete 5-piece system: cleanser, exfoliant, serum, moisturizer, and hydrosol.", emoji: "&#127802;" },
+      { name: "Rose Otto Stem Cell Cleanser", cat: "facial", price: 72, desc: "Luxurious rose-infused cleanser for deep, gentle purification.", emoji: "&#127802;" },
+      { name: "Blue Rose Stem Cell Cleanser", cat: "facial", price: 72, desc: "Rare blue tansy and rose cleanser for sensitive complexions.", emoji: "&#127802;" },
+      { name: "Glycolic Exfoliation Foam", cat: "facial", price: 58, desc: "Gentle exfoliating foam with glycolic acid and botanical extracts.", emoji: "&#127802;" },
+      { name: "Facial Rejuvenation Moisturizer", cat: "facial", price: 68, desc: "Rich moisturizer with organic essential oils for deep hydration.", emoji: "&#127802;" },
+      { name: "Rose To Perfection Serum", cat: "facial", price: 85, badge: "Rare", desc: "Rare rose serum with the finest Bulgarian Rose Otto.", emoji: "&#127802;" },
+      { name: "Sleep Formula", cat: "wellness", price: 30, desc: "Calming blend of lavender and chamomile to promote deep, restful sleep.", emoji: "&#127769;" },
+      { name: "Stress Relief", cat: "wellness", price: 28, desc: "Soothing aromatherapy blend to ease anxiety and promote calm.", emoji: "&#127769;" },
+      { name: "Breathe Easy", cat: "wellness", price: 26, desc: "Respiratory support blend with eucalyptus and peppermint.", emoji: "&#127769;" },
+      { name: "Purification & Immune Formula", cat: "wellness", price: 30, desc: "Immune-boosting blend for seasonal wellness support.", emoji: "&#127769;" },
+      { name: "Sinus & Allergy Relief", cat: "wellness", price: 28, desc: "Natural relief for sinus pressure and seasonal allergies.", emoji: "&#127769;" },
+      { name: "Happy Mouth Drops", cat: "wellness", price: 22, desc: "Oral health formula for gum care and fresh breath.", emoji: "&#127769;" },
+      { name: "Compound Help!", cat: "wellness", price: 32, desc: "Multi-purpose healing compound for everyday wellness needs.", emoji: "&#127769;" },
+      { name: "Addiction Solution", cat: "wellness", price: 34, desc: "Supportive aromatherapy blend for craving management.", emoji: "&#127769;" },
+      { name: "Hot Flash Relief", cat: "wellness", price: 32, desc: "Cooling roll-on formula for menopausal hot flash relief.", emoji: "&#127769;" },
+      { name: "Wellness Honey", cat: "wellness", price: 28, desc: "Raw honey infused with therapeutic essential oils.", emoji: "&#127769;" },
+      { name: "Women's Deodorant", cat: "deodorant", price: 24, desc: "All-natural roll-on deodorant with organic essential oils.", emoji: "&#127811;" },
+      { name: "Men's Deodorant", cat: "deodorant", price: 24, desc: "Fresh, clean roll-on deodorant crafted for men.", emoji: "&#127811;" },
+      { name: "Whole Body Deodorant", cat: "deodorant", price: 26, desc: "Full-body deodorant for all-over freshness.", emoji: "&#127811;" },
+      { name: "Dry Brush Formula", cat: "skin", price: 30, badge: "New", desc: "Essential oil blend for dry brushing rituals.", emoji: "&#127807;" },
+      { name: "Earache Treatment", cat: "wellness", price: 24, desc: "Gentle ear treatment formula for natural pain relief.", emoji: "&#127769;" },
+      { name: "Wart Formula", cat: "skin", price: 22, desc: "Targeted topical treatment for common warts.", emoji: "&#127807;" },
+      { name: "H-Benign Mole Formula", cat: "skin", price: 28, badge: "New", desc: "Natural formula for benign skin growths.", emoji: "&#127807;" },
+      { name: "Herp Aid", cat: "skin", price: 34, desc: "Powerful antiviral essential oil blend for outbreak support.", emoji: "&#127807;" },
+      { name: "Beauty Mark Formula", cat: "skin", price: 26, desc: "Botanical formula for skin blemish treatment.", emoji: "&#127807;" },
+      { name: "Yeast Balance", cat: "wellness", price: 30, desc: "Antifungal aromatherapy blend for yeast-related concerns.", emoji: "&#127769;" },
+    ];
+
+    let currentFilter = 'all';
+
+    function renderProducts(list) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = list.map((p, i) => `
+        <div class="product-card" onclick="openModal(${products.indexOf(p)})">
+          <div class="product-image">
+            <div style="font-size:80px;opacity:0.5;">${p.emoji}</div>
+            ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+          </div>
+          <div class="product-info">
+            <div class="product-category">${getCatLabel(p.cat)}</div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${p.desc}</div>
+            <div class="product-footer">
+              <div class="product-price"><span class="from">from </span>$${p.price}.00</div>
+              <button class="add-btn" onclick="event.stopPropagation()">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('resultCount').textContent = `Showing ${list.length} product${list.length !== 1 ? 's' : ''}`;
+    }
+
+    function getCatLabel(cat) {
+      const labels = { pain: 'Pain Relief', skin: 'Skin Care', facial: 'Facial', wellness: 'Wellness', deodorant: 'Deodorant' };
+      return labels[cat] || cat;
+    }
+
+    function setFilter(filter, el) {
+      currentFilter = filter;
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      filterProducts();
+    }
+
+    function filterProducts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(p => {
+        const matchesFilter = currentFilter === 'all' || p.cat === currentFilter;
+        const matchesSearch = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query);
+        return matchesFilter && matchesSearch;
+      });
+      renderProducts(filtered);
+    }
+
+    function openModal(idx) {
+      const p = products[idx];
+      document.getElementById('modalName').textContent = p.name;
+      document.getElementById('modalCategory').textContent = getCatLabel(p.cat);
+      document.getElementById('modalPrice').textContent = `$${p.price}.00`;
+      document.getElementById('modalDesc').textContent = p.desc;
+      document.getElementById('modalEmoji').innerHTML = p.emoji;
+      document.getElementById('modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      if (e.target === document.getElementById('modal')) {
+        document.getElementById('modal').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.getElementById('modal').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    renderProducts(products);
+  </script>
+</body>
+</html>

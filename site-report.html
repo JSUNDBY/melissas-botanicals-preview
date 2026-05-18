@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Audit & Scope of Work — melissasbotanicals.com</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-red: #b2292e;
+      --brand-red-soft: #fbeaec;
+      --brand-dark: #1a1a1a;
+      --brand-cream: #faf8f5;
+      --brand-warm: #f5f0eb;
+      --text: #2c2c2c;
+      --text-light: #6b6b6b;
+      --border: #e5e0db;
+      --bg: #faf8f5;
+      --card-bg: #ffffff;
+
+      --tag-arch: #3b6e8f;
+      --tag-template: #6e3b8f;
+      --tag-perf: #8f5e3b;
+      --tag-seo: #3b8f5e;
+      --tag-a11y: #8f3b6e;
+      --tag-admin: #555;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* === HEADER === */
+    .report-header {
+      background: var(--brand-dark);
+      color: white;
+      padding: 56px 40px 44px;
+      text-align: center;
+    }
+    .report-header .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.55;
+      margin-bottom: 14px;
+    }
+    .report-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .report-header h1 strong { font-weight: 600; color: #f0d5d6; }
+    .report-header .url {
+      font-size: 13px;
+      opacity: 0.55;
+      font-family: 'SF Mono', Menlo, monospace;
+      margin-bottom: 22px;
+    }
+    .report-header .team {
+      display: inline-flex;
+      gap: 28px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 12.5px;
+      opacity: 0.75;
+    }
+    .report-header .team-member { text-align: center; }
+    .report-header .team-role {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.5;
+      margin-bottom: 3px;
+    }
+    .report-header .team-name { font-weight: 500; }
+    .report-header .date {
+      margin-top: 16px;
+      font-size: 11px;
+      opacity: 0.4;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 24px 60px;
+    }
+
+    /* === READER NOTE === */
+    .reader-note {
+      background: white;
+      border-left: 3px solid var(--brand-red);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .reader-note .summary-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .reader-note p {
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .reader-note p + p { margin-top: 10px; }
+    .reader-note strong { color: var(--brand-dark); }
+
+    /* === FACTS GRID === */
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .fact-card {
+      background: white;
+      padding: 22px 18px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .fact-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .fact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* === SECTIONS === */
+    .section { margin-bottom: 48px; }
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: var(--brand-dark);
+    }
+    .section-intro {
+      font-size: 14.5px;
+      color: var(--text-light);
+      max-width: 720px;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    /* === FINDING CARDS === */
+    .finding {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 22px 24px;
+      margin-bottom: 12px;
+    }
+    .finding-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .finding-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 100px;
+      color: white;
+      white-space: nowrap;
+    }
+    .tag-arch { background: var(--tag-arch); }
+    .tag-template { background: var(--tag-template); }
+    .tag-perf { background: var(--tag-perf); }
+    .tag-seo { background: var(--tag-seo); }
+    .tag-a11y { background: var(--tag-a11y); }
+    .tag-admin { background: var(--tag-admin); }
+
+    .finding-title {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--brand-dark);
+    }
+    .finding-tech {
+      font-size: 13.5px;
+      color: var(--text-light);
+      line-height: 1.7;
+      padding-bottom: 14px;
+    }
+    .finding-tech code {
+      background: var(--brand-warm);
+      color: var(--brand-dark);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-family: 'SF Mono', Menlo, monospace;
+    }
+
+    .finding-plain {
+      background: var(--brand-red-soft);
+      border-radius: 4px;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      color: var(--brand-dark);
+      line-height: 1.65;
+      border-left: 3px solid var(--brand-red);
+    }
+    .finding-plain .plain-label {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--brand-red);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    /* === SCOPE === */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .scope-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand-red);
+      border-radius: 4px;
+      padding: 24px 28px;
+    }
+    .scope-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .scope-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--brand-dark);
+    }
+    .scope-plain {
+      font-size: 13.5px;
+      color: var(--text-light);
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    .scope-item ul {
+      list-style: none;
+      padding: 0;
+    }
+    .scope-item li {
+      font-size: 13.5px;
+      color: var(--text);
+      padding: 5px 0 5px 22px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .scope-item li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--brand-red);
+      font-weight: 700;
+    }
+
+    /* === STACK TABLE === */
+    .stack-table {
+      width: 100%;
+      background: white;
+      border: 1px solid var(--border);
+      border-collapse: collapse;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .stack-table th {
+      background: var(--brand-warm);
+      padding: 12px 18px;
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--brand-dark);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    .stack-table td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+    .stack-table tr:last-child td { border-bottom: none; }
+    .stack-table td:first-child {
+      font-weight: 500;
+      color: var(--brand-dark);
+      width: 200px;
+    }
+    .stack-table td code {
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 12px;
+      background: var(--brand-warm);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* === CLOSING === */
+    .closing {
+      background: var(--brand-dark);
+      color: white;
+      border-radius: 4px;
+      padding: 38px 42px;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .closing h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .closing p {
+      font-size: 14px;
+      opacity: 0.7;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .closing p + p { margin-top: 10px; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .container { padding: 32px 18px 48px; }
+      .report-header { padding: 40px 20px 32px; }
+      .report-header h1 { font-size: 28px; }
+      .report-header .team { flex-direction: column; gap: 14px; }
+      .facts { grid-template-columns: repeat(2, 1fr); }
+      .stack-table td:first-child { width: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="report-header">
+    <div class="label">Site Audit & Scope of Work</div>
+    <h1><strong>Melissa's Botanicals</strong></h1>
+    <div class="url">melissasbotanicals.com</div>
+    <div class="team">
+      <div class="team-member">
+        <span class="team-role">Producer</span>
+        <span class="team-name">Dawn Drouillard</span>
+      </div>
+      <div class="team-member">
+        <span class="team-role">Design & Build</span>
+        <span class="team-name">Josh Sundby</span>
+      </div>
+    </div>
+    <div class="date">May 18, 2026</div>
+  </div>
+
+  <div class="container">
+
+    <!-- READER NOTE -->
+    <div class="reader-note">
+      <div class="summary-label">How to read this document</div>
+      <p>This audit looks at your site the way a customer and a search engine see it today. Every finding below has two parts: <strong>what we found technically</strong>, and underneath it, <strong>what that actually means for your business</strong> — in plain language.</p>
+      <p>The goal isn't to grade the current site. It's to give you a complete, honest picture of the scope of work — so when we talk through pricing, nothing is hidden and nothing is invented.</p>
+    </div>
+
+    <!-- FACTS -->
+    <div class="facts">
+      <div class="fact-card">
+        <div class="fact-num">115</div>
+        <div class="fact-label">Unique products</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">3</div>
+        <div class="fact-label">Product groups</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">0</div>
+        <div class="fact-label">Search / filters</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">1</div>
+        <div class="fact-label">Page for all products</div>
+      </div>
+    </div>
+
+    <!-- SECTION: TECH STACK -->
+    <div class="section">
+      <div class="section-eyebrow">What's running</div>
+      <h2 class="section-title">Your current tech stack</h2>
+      <p class="section-intro">These are the moving parts under the hood. Observed from the live site — none of it is guesswork. The names are technical; the takeaway underneath is simple.</p>
+
+      <table class="stack-table">
+        <thead>
+          <tr><th>Layer</th><th>What's there</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>The platform</td><td>WordPress · WooCommerce — the engine that runs the store</td></tr>
+          <tr><td>Page builder</td><td>Elementor <code>4.0.2</code> — every product page is hand-built here</td></tr>
+          <tr><td>Theme</td><td>Custom <code>melissasbotanicals</code> theme — the visual layer</td></tr>
+          <tr><td>Active plugins</td><td>Jetpack, SiteGround Optimizer, WooCommerce</td></tr>
+          <tr><td>Tracking</td><td>Google Tag Manager, WordPress.com Stats, Jetpack Analytics</td></tr>
+          <tr><td>Front-end libraries</td><td>jQuery (loaded twice), jQuery Migrate, Foundation, What-Input, Lazysizes</td></tr>
+          <tr><td>Product image formats</td><td>Mostly PNG (109 of 129 on the homepage); 2 WebP, 0 AVIF</td></tr>
+        </tbody>
+      </table>
+      <p class="section-intro" style="margin-top: 18px;"><strong>What this means in one sentence:</strong> your store engine (WooCommerce) is solid and industry-standard. The problem is everything that's been bolted on top of it — the page builder, the duplicated scripts, the per-page custom styling — none of which is needed to run an ecommerce business. The rebuild removes the bolt-ons and lets WooCommerce do what it was designed to do.</p>
+    </div>
+
+    <!-- SECTION: FINDINGS -->
+    <div class="section">
+      <div class="section-eyebrow">Observations</div>
+      <h2 class="section-title">What we found</h2>
+      <p class="section-intro">Each finding below has the technical observation first, then a plain-English translation of what it means for customers and sales.</p>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-arch">Catalog Architecture</span>
+          <span class="finding-title">All 115 products live on a single scrolling page</span>
+        </div>
+        <div class="finding-tech">
+          The <code>/products/</code> page renders the entire catalog at once. No pagination, no category landing pages, no filters, no search. Products are organized into three hand-curated sections (Formulas, Singles, Hydrosols) that all live on the same URL.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          When someone arrives looking for a sleep formula — whether from Google, Instagram, or a friend's recommendation — they land on a wall of 115 products and have to scroll. There's nothing for them to click. Most leave before they find what they came for. This is the single biggest reason your traffic isn't converting the way it could.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-arch">Catalog Architecture</span>
+          <span class="finding-title">The same products appear in multiple sections</span>
+        </div>
+        <div class="finding-tech">
+          On the listing page, oils like Frankincense, Lavender, Rose Otto, and Tea Tree appear under both a featured group and the full singles list. This isn't a bug — it's a tell that the page was hand-curated rather than driven by your product database.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          This is exactly the reason adding a new product is so painful. The page is built like a magazine layout instead of a catalog. Every new product means editing the layout, not just adding the product. Once the rebuild is in place, "add a product" really does mean just adding the product.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-template">Product Template</span>
+          <span class="finding-title">Pop-up content is showing on the page itself</span>
+        </div>
+        <div class="finding-tech">
+          On product pages (e.g. Acne Solution), content meant to appear inside the "Practical Applications" pop-up — compress instructions, patch testing guidelines, the olive oil safety protocol — is rendering directly on the page. In some cases it appears two or three times in a row.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          The product page looks broken. Instructions that should only appear when a customer clicks an icon are showing up multiple times in the middle of the product description. This is happening on every product because they all share the same broken template. Right now, every visitor to your highest-traffic pages sees a page that looks like it has bugs.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-template">Product Template</span>
+          <span class="finding-title">Application icons render as plain letters</span>
+        </div>
+        <div class="finding-tech">
+          The "Practical Applications" section shows <code>C</code>, <code>S</code>, <code>M</code>, <code>N</code> in place of icons for Compress, Skincare, Massage, and Neat.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          Where customers should see beautiful icons hinting at how to use the oil, they see what looks like a typo: four single letters. There's no visual cue that those letters are meant to be tapped. Most customers don't.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-template">Product Template</span>
+          <span class="finding-title">A product's address reveals the copy-paste problem</span>
+        </div>
+        <div class="finding-tech">
+          The Facial Rejuvenation Kit lives at the URL <code>/products/lavender-bundle-copy/</code>. That slug is a leftover from when someone duplicated a different product page to set this one up.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          The address bar tells the story of how the site has been maintained: by copying existing pages and editing them. This kind of artifact accumulates over time, and it makes the site harder to maintain every year. The rebuild eliminates the need for this kind of workaround entirely.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-perf">Performance</span>
+          <span class="finding-title">The site loads a key piece of software twice</span>
+        </div>
+        <div class="finding-tech">
+          The page loads <code>jquery.min.js</code> once from WordPress core and again from the theme's bundled copy in <code>node_modules</code>. Two separate downloads of the same library on every page view.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          Every visitor downloads the same script twice — like pouring two cups of coffee when you only need one. It slows the site down for no benefit. Google's algorithm penalizes slow sites in search rankings. Mobile shoppers on weaker connections feel it the most.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-perf">Performance</span>
+          <span class="finding-title">The homepage loads 20 separate scripts</span>
+        </div>
+        <div class="finding-tech">
+          Including duplicate jQuery, plus Foundation, What-Input, WooCommerce frontend bundle, Google Tag Manager, WordPress.com Stats, Jetpack analytics, sourcebuster, and several theme scripts. The SG Optimizer plugin is installed but not configured to combine these.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          Each one of those 20 scripts is a separate trip the browser has to make before your page becomes usable. You're already paying for a plugin that's supposed to combine them — it's just never been configured. This is fixable in a few hours and the page will feel noticeably faster.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-perf">Performance</span>
+          <span class="finding-title">Each page carries its own custom styling</span>
+        </div>
+        <div class="finding-tech">
+          The homepage alone contains 12 inline <code>&lt;style&gt;</code> blocks totaling roughly 12 KB of custom CSS. These are mostly Elementor-generated overrides specific to that single page. None of it is shared or cached across the site.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          Every page on your site is carrying its own bundle of style overrides — none of it shared between pages, none of it cached. Each page reload starts the styling work from scratch. It also means small visual tweaks tend to break things, because the styling is fragmented across hundreds of places instead of one.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-perf">Performance</span>
+          <span class="finding-title">Phone shoppers are downloading desktop-sized images</span>
+        </div>
+        <div class="finding-tech">
+          Of 129 images on the homepage: 109 PNG, 5 JPEG, 8 SVG, 2 WebP. None use the <code>srcset</code> attribute, which means there's no mechanism to serve a smaller image to a smaller screen.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          A customer on an iPhone is downloading the same full-resolution product photos as a customer on a 27-inch desktop monitor — even though the phone screen is a quarter of the size. Phone shoppers are now the majority of online traffic. Right now, they're working harder than they need to just to see your products.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-a11y">Accessibility</span>
+          <span class="finding-title">Three out of four product photos have no description</span>
+        </div>
+        <div class="finding-tech">
+          98 of 129 <code>&lt;img&gt;</code> tags on the homepage have empty <code>alt</code> attributes. Alt text is the short description attached to an image that screen readers announce and search engines read.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          Two consequences. First: when a visually-impaired shopper visits using a screen reader, every product image is announced as "image" — they hear silence instead of "Acne Solution roll-on, 5ml." Second: Google can't see what's in your images, so you don't show up in image searches like "lavender essential oil bottle." Adding alt text is a small task that opens up two whole channels.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-seo">SEO</span>
+          <span class="finding-title">Your Google listing ends with a stray <code>%</code> character</span>
+        </div>
+        <div class="finding-tech">
+          The current homepage title tag reads: <em>"Organic Essential Oil &amp; French Medical Aromatherapy | Melissa's Botanicals %"</em> — the trailing <code>%</code> is a Yoast SEO template token (<code>%%page%%</code> or similar) that didn't resolve.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          Every time someone Googles your business, that's what they see in the search results. A stray percent sign at the end of your name. It looks broken — and search results are where most first impressions happen now. Five-minute fix; been there for a while.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-seo">SEO</span>
+          <span class="finding-title">Search engines can't see your products as products</span>
+        </div>
+        <div class="finding-tech">
+          Product pages don't emit structured data for <code>Product</code>, <code>Offer</code>, or <code>AggregateRating</code>. This is the markup that lets Google show rich product cards in search results.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          When a competitor product appears in Google search, you see the star rating, the price, and an "in stock" badge right in the result. Your products appear as plain blue links. The visual difference is enormous and the click-through rates are dramatically different. The fix is invisible markup that tells Google "this is a product, here's its price, here's its rating." It's standard work that's never been done.
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-head">
+          <span class="finding-tag tag-admin">Owner Control</span>
+          <span class="finding-title">Adding a product requires a developer, not you</span>
+        </div>
+        <div class="finding-tech">
+          The current architecture treats every product detail page as an individually-built Elementor layout rather than a single template that all products inherit from. There's no shared template — so every "new product" means hand-building a new page.
+        </div>
+        <div class="finding-plain">
+          <span class="plain-label">What this means</span>
+          This is the root reason every change runs through a developer. It's also the thing we fix first. Once the catalog is on a unified template, adding a product really is just: name, description, photo, price, click save. You can do it from your phone if you want.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: SCOPE -->
+    <div class="section">
+      <div class="section-eyebrow">The work, by area</div>
+      <h2 class="section-title">Scope of work</h2>
+      <p class="section-intro">The rebuild covers six work areas. Each one maps back to the findings above. Pricing scales with which areas you include and which growth services you add — we'll align on a final number after walking through this together. The pre-proposal document covers the optional growth services.</p>
+
+      <div class="scope-grid">
+
+        <div class="scope-item">
+          <div class="scope-num">01 · Catalog Architecture</div>
+          <div class="scope-title">Make your store browsable</div>
+          <div class="scope-plain">So shoppers can find what they came for in seconds.</div>
+          <ul>
+            <li>Real category pages — Formulas, Singles, Hydrosols, Skincare</li>
+            <li>Sub-categories within Formulas: Pain, Skin, Wellness, Facial, Deodorant</li>
+            <li>Live search bar with type-ahead suggestions</li>
+            <li>Filter pills — by use case, by category, by price</li>
+            <li>Sort options — by name, price, popularity</li>
+            <li>Pagination (or load-more on mobile)</li>
+          </ul>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-num">02 · Product Template</div>
+          <div class="scope-title">One clean page that all 115 products share</div>
+          <div class="scope-plain">So every product looks polished and the modal bleed-through goes away.</div>
+          <ul>
+            <li>Single unified layout that every product inherits from</li>
+            <li>Fix pop-up bleed-through (compress, patch test, safety protocol)</li>
+            <li>Replace letter placeholders with real icons</li>
+            <li>Clean up size variations and pricing display</li>
+            <li>Related products / cross-sells driven by category</li>
+            <li>Consistent image gallery with zoom and swipe</li>
+          </ul>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-num">03 · Image Pipeline</div>
+          <div class="scope-title">Phones load fast, every photo is described</div>
+          <div class="scope-plain">So your site feels fast on phones and shows up in image searches.</div>
+          <ul>
+            <li>Convert product imagery to WebP/AVIF (modern formats) with fallback</li>
+            <li>Generate responsive size variants for phone, tablet, desktop</li>
+            <li>Write descriptive alt text for every product image</li>
+            <li>Standardize image dimensions across the catalog</li>
+          </ul>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-num">04 · SEO & Structured Data</div>
+          <div class="scope-title">Make Google see your products as products</div>
+          <div class="scope-plain">So your Google listings show stars, prices, and "in stock" badges instead of plain links.</div>
+          <ul>
+            <li>Fix the broken page title template (the stray <code>%</code>)</li>
+            <li>Add Product, Offer, and AggregateRating schema to every product</li>
+            <li>Per-product meta descriptions written for search</li>
+            <li>Sitemap audit and Google Search Console reconnect</li>
+            <li>Internal linking between related products and conditions</li>
+          </ul>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-num">05 · Performance & Code Cleanup</div>
+          <div class="scope-title">Strip out the cruft that's slowing things down</div>
+          <div class="scope-plain">So pages load faster and the site feels professionally maintained.</div>
+          <ul>
+            <li>Remove the duplicate jQuery load</li>
+            <li>Audit the plugin list, retire what's unused</li>
+            <li>Consolidate inline page-specific CSS into the theme</li>
+            <li>Configure SG Optimizer's combine/minify (already installed, unused)</li>
+            <li>Remove per-page CSS overrides and <code>!important</code> patches</li>
+          </ul>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-num">06 · Admin Handoff</div>
+          <div class="scope-title">You run the catalog from now on</div>
+          <div class="scope-plain">So you can add, edit, or remove products yourself — no developer call required.</div>
+          <ul>
+            <li>Full owner-managed product CRUD from the WooCommerce dashboard</li>
+            <li>30-minute training session (live or recorded — your choice)</li>
+            <li>Written cheat-sheet for common tasks (add product, change price, swap photo)</li>
+            <li>30 days of post-launch support for questions or fixes</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <h2>The pre-proposal is next</h2>
+      <p>This document covered what's there and what needs to change. The pre-proposal walks through the growth services we can layer in alongside the rebuild — video, content, email automation, subscriptions, and more.</p>
+      <p>Dawn will walk you through both, then we'll align on which pieces are right for this round.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Proposal — Melissa's Botanicals</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-red: #b2292e;
+      --brand-red-soft: #fbeaec;
+      --brand-dark: #1a1a1a;
+      --brand-cream: #faf8f5;
+      --brand-warm: #f5f0eb;
+      --text: #2c2c2c;
+      --text-light: #6b6b6b;
+      --border: #e5e0db;
+      --bg: #faf8f5;
+      --card-bg: #ffffff;
+      --accent-gold: #b89456;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    /* === HEADER === */
+    .doc-header {
+      background: var(--brand-dark);
+      color: white;
+      padding: 60px 40px 48px;
+      text-align: center;
+      position: relative;
+    }
+    .doc-header::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--brand-red);
+    }
+    .doc-header .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.55;
+      margin-bottom: 14px;
+    }
+    .doc-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .doc-header h1 strong { font-weight: 600; color: #f0d5d6; }
+    .doc-header .subtitle {
+      font-size: 14px;
+      opacity: 0.65;
+      letter-spacing: 0.5px;
+      margin-bottom: 22px;
+    }
+    .doc-header .date {
+      font-size: 11px;
+      opacity: 0.45;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 56px 24px 60px;
+    }
+
+    /* === SECTIONS === */
+    .section { margin-bottom: 56px; }
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 18px;
+      color: var(--brand-dark);
+    }
+    .section-intro {
+      font-size: 15px;
+      color: var(--text);
+      max-width: 720px;
+      margin-bottom: 28px;
+      line-height: 1.75;
+    }
+    .section-intro + .section-intro { margin-top: -16px; }
+
+    /* === OPENING NARRATIVE === */
+    .opening {
+      background: white;
+      border-left: 3px solid var(--brand-red);
+      padding: 30px 34px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin-bottom: 56px;
+    }
+    .opening p {
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .opening p + p { margin-top: 14px; }
+    .opening em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--brand-dark);
+      font-size: 17px;
+    }
+
+    /* === TEAM === */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .team-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 26px;
+    }
+    .team-card.primary {
+      border-left: 4px solid var(--brand-red);
+    }
+    .team-role {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .team-card.secondary .team-role { color: var(--text-light); }
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 4px;
+    }
+    .team-tagline {
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    .team-bio {
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* === HOW WE WORK === */
+    .working-model {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 32px;
+    }
+    .working-model p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .working-model p + p { margin-top: 12px; }
+    .working-model strong { color: var(--brand-dark); }
+
+    /* === FOUNDATION === */
+    .foundation {
+      background: var(--brand-dark);
+      color: white;
+      border-radius: 6px;
+      padding: 34px 38px;
+      position: relative;
+      overflow: hidden;
+    }
+    .foundation::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(178,41,46,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .foundation-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #f0d5d6;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .foundation-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .foundation-subtitle {
+      font-size: 14px;
+      opacity: 0.75;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+    .foundation-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 28px;
+      margin-top: 16px;
+    }
+    .foundation-item {
+      font-size: 13.5px;
+      padding: 5px 0 5px 22px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .foundation-item::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--brand-red);
+      font-weight: 700;
+    }
+    .foundation-item strong {
+      color: white;
+      font-weight: 600;
+      display: block;
+      font-size: 13.5px;
+      margin-bottom: 1px;
+    }
+    .foundation-item span {
+      opacity: 0.7;
+      font-size: 12.5px;
+    }
+
+    /* === MODULAR MENU === */
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .menu-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 22px 24px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .menu-item:hover {
+      border-color: var(--brand-red);
+      box-shadow: 0 2px 8px rgba(178,41,46,0.06);
+    }
+    .menu-item-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .menu-item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      line-height: 1.2;
+    }
+    .menu-item-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--brand-red);
+      font-weight: 600;
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+    .menu-item-plain {
+      font-size: 12.5px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .menu-item-body {
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .menu-item-body em {
+      color: var(--brand-dark);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* === PROCESS === */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 22px 20px;
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--brand-red);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 12.5px;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+
+    /* === PRICING NOTE === */
+    .pricing-note {
+      background: var(--brand-warm);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 26px 30px;
+    }
+    .pricing-note .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .pricing-note h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--brand-dark);
+      margin-bottom: 10px;
+    }
+    .pricing-note p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .pricing-note p + p { margin-top: 10px; }
+
+    /* === ARCHITECTURE === */
+    .arch-intro {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 26px 30px;
+      margin-bottom: 18px;
+    }
+    .arch-intro p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .arch-intro strong { color: var(--brand-dark); font-weight: 600; }
+
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .arch-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent-gold);
+      border-radius: 4px;
+      padding: 22px 24px;
+    }
+    .arch-card.recommend {
+      border-top-color: var(--brand-red);
+    }
+    .arch-card-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .arch-card.recommend .arch-card-label { color: var(--brand-red); }
+    .arch-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 8px;
+    }
+    .arch-card-body {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    /* === CLOSING === */
+    .closing {
+      background: var(--brand-dark);
+      color: white;
+      border-radius: 6px;
+      padding: 40px 44px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .closing h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+    .closing p {
+      font-size: 14.5px;
+      opacity: 0.75;
+      max-width: 580px;
+      margin: 0 auto 20px;
+      line-height: 1.75;
+    }
+    .closing .contact {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 13px;
+      opacity: 0.65;
+    }
+    .closing .contact strong { color: white; opacity: 1; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .container { padding: 36px 18px 48px; }
+      .doc-header { padding: 44px 20px 32px; }
+      .doc-header h1 { font-size: 32px; }
+      .section-title { font-size: 26px; }
+      .team-grid { grid-template-columns: 1fr; }
+      .menu { grid-template-columns: 1fr; }
+      .foundation-items { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .foundation { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="label">Pre-Proposal</div>
+    <h1><strong>Melissa's Botanicals</strong></h1>
+    <div class="subtitle">Website rebuild · Catalog independence · Growth services</div>
+    <div class="date">May 18, 2026</div>
+  </div>
+
+  <div class="container">
+
+    <!-- OPENING -->
+    <div class="opening">
+      <p><em>You built something rare.</em></p>
+      <p>Twenty-seven years of clinical aromatherapy practice. The first 100% certified organic essential oils in the American market. A catalog of 115 products sourced from cooperatives in France, Bulgaria, Australia, Corsica, and Tunisia. Recognition in France as <em>Formulateur en aromathérapie scientifique et médicale</em>. A boutique in Bloomington that customers describe as a French apothecary in the Midwest.</p>
+      <p>The website doesn't reflect any of that yet. It works — but it's holding the business back from doing what it could be doing. It's slow on phones. It doesn't show up properly in search. It can't be updated without a developer. And the customer landing on it has to scroll through 115 products to find the one thing they came for.</p>
+      <p>This document outlines how to fix that, and how to layer in the growth pieces that turn a working website into one that compounds. We've separated the foundation work from the optional growth services so you can choose the scope that fits this season.</p>
+    </div>
+
+    <!-- TEAM -->
+    <div class="section">
+      <div class="section-eyebrow">Your team</div>
+      <h2 class="section-title">Who you'll be working with</h2>
+      <p class="section-intro">A two-person team built so your time isn't spent managing the build. Dawn handles day-to-day. Josh handles the work.</p>
+
+      <div class="team-grid">
+
+        <div class="team-card primary">
+          <div class="team-role">Producer · Primary Contact</div>
+          <div class="team-name">Dawn Drouillard</div>
+          <div class="team-tagline">Your day-to-day point of contact</div>
+          <div class="team-bio">
+            Dawn keeps the project moving. She's your single contact for status, decisions, scheduling, and feedback. Anything you'd otherwise need to chase down — when does this go live, can we tweak this, what about this other idea — goes through her. She coordinates with Josh on your behalf so you can stay focused on the business.
+          </div>
+        </div>
+
+        <div class="team-card secondary">
+          <div class="team-role">Design & Build</div>
+          <div class="team-name">Josh Sundby</div>
+          <div class="team-tagline">Designer, developer, audio producer</div>
+          <div class="team-bio">
+            Josh designs and builds the site, produces any video and audio work, and handles the technical execution end-to-end. Based in Minneapolis. Background in product design, web development, and audio production. Communicates through Dawn during the project.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- HOW WE WORK -->
+    <div class="section">
+      <div class="section-eyebrow">Working model</div>
+      <h2 class="section-title">Modular scope, one deposit, one delivery</h2>
+      <p class="section-intro">The project is built as a foundation plus a menu of optional growth services. You select which growth services to include up front; pricing is settled once the scope is settled.</p>
+
+      <div class="working-model">
+        <p><strong>The foundation</strong> is the rebuild itself — the work that takes the catalog from "needs a developer for every change" to "you run it yourself." It's required.</p>
+        <p><strong>The growth services</strong> are optional. They cover the pieces that compound: video, content, email automation, structured data, reviews, and more. Most clients choose two or three.</p>
+        <p><strong>Platform additions</strong> are larger, optional capabilities — Shopify migration, wholesale portal, subscription products. These get scoped separately if you want them.</p>
+        <p><strong>One deposit, one delivery date.</strong> Whatever you choose gets built, tested, and launched together — not in fragments.</p>
+      </div>
+    </div>
+
+    <!-- THE FOUNDATION -->
+    <div class="section">
+      <div class="section-eyebrow">Required · The rebuild</div>
+      <h2 class="section-title">The foundation</h2>
+      <p class="section-intro">This is the core work that the site report covered in detail. Six work areas, one deliverable.</p>
+
+      <div class="foundation">
+        <div class="foundation-label">Included in every engagement</div>
+        <div class="foundation-title">Catalog Independence Package</div>
+        <div class="foundation-subtitle">Your store, browsable. Your catalog, owner-managed.</div>
+
+        <div class="foundation-items">
+          <div class="foundation-item">
+            <strong>Catalog architecture</strong>
+            <span>Real category pages, live search, filters, sorting, pagination</span>
+          </div>
+          <div class="foundation-item">
+            <strong>Unified product template</strong>
+            <span>One clean page that all 115 products share</span>
+          </div>
+          <div class="foundation-item">
+            <strong>Image pipeline</strong>
+            <span>Modern formats, responsive sizes, alt text on every image</span>
+          </div>
+          <div class="foundation-item">
+            <strong>SEO & structured data</strong>
+            <span>Product schema, rich Google results, sitemap fixes</span>
+          </div>
+          <div class="foundation-item">
+            <strong>Performance & cleanup</strong>
+            <span>Remove the bolt-ons, the duplicate scripts, the patches</span>
+          </div>
+          <div class="foundation-item">
+            <strong>Admin handoff</strong>
+            <span>Owner-managed CRUD, 30-min training, 30 days of support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="section">
+      <div class="section-eyebrow">Where your store lives</div>
+      <h2 class="section-title">A faster home, same admin you know</h2>
+      <p class="section-intro">The rebuild deploys to <strong>Cloudflare</strong> — the same global delivery network used by some of the largest sites on the internet — while your <strong>existing WooCommerce admin stays exactly where it is</strong>. You log in the way you do today; customers see a brand-new site that loads in under a second from anywhere in the world.</p>
+
+      <div class="arch-intro">
+        <p>The simplest way to think about it: <strong>two halves of the same store.</strong> The half you log into stays familiar. The half your customers see gets completely rebuilt. Add a product in WooCommerce as you always have — it appears on the new fast site automatically.</p>
+      </div>
+
+      <div class="arch-grid">
+
+        <div class="arch-card recommend">
+          <div class="arch-card-label">For your customers</div>
+          <div class="arch-card-title">A blazing-fast storefront</div>
+          <div class="arch-card-body">
+            Served from Cloudflare's edge network — the new site loads in milliseconds on phones, tablets, and laptops, anywhere in the world. No more WordPress overhead, no more plugin slowdown, no more "why is this page taking so long."
+          </div>
+        </div>
+
+        <div class="arch-card recommend">
+          <div class="arch-card-label">For you</div>
+          <div class="arch-card-title">The admin you already know</div>
+          <div class="arch-card-body">
+            You log into the same WooCommerce admin you use today. Same buttons, same workflow, same place. Add a product, change a price, swap a photo — it shows up on the new fast site automatically. Nothing to relearn.
+          </div>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-card-label">Free with Cloudflare</div>
+          <div class="arch-card-title">Perks built into the platform</div>
+          <div class="arch-card-body">
+            Cloudflare's free plan includes a global CDN, free SSL, DDoS protection, and Cloudflare Images for automatic photo optimization. Cloudflare Stream is available for hosting product and brand videos. Hosting your customer-facing site here costs effectively nothing per month.
+          </div>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-card-label">If you want more later</div>
+          <div class="arch-card-title">A modern admin is available too</div>
+          <div class="arch-card-body">
+            If you decide later that you'd like to replace the WordPress admin with something cleaner and more modern, there's a follow-on migration path. See <em>Modern Admin Migration</em> in platform additions — it's an optional upgrade, not required.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GROWTH SERVICES MENU -->
+    <div class="section">
+      <div class="section-eyebrow">Optional · Pick what fits</div>
+      <h2 class="section-title">Growth services menu</h2>
+      <p class="section-intro">The pieces that turn a working website into one that compounds. Each is priced individually. Most clients choose two or three for the launch and add the rest later.</p>
+
+      <div class="menu">
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Brand Story Video</div>
+            <div class="menu-item-tag">Trust + SEO</div>
+          </div>
+          <div class="menu-item-plain">A short film about Melissa and the work.</div>
+          <div class="menu-item-body">
+            A 3-5 minute hero video for the homepage and About page: your background, the French Medical Aromatherapy training, the sourcing relationships, what makes the formulas different. Narrated, scored, and edited. <em>Why it matters: brand-story video on a homepage measurably increases time-on-site, trust, and conversion.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Product Education Videos</div>
+            <div class="menu-item-tag">Conversion</div>
+          </div>
+          <div class="menu-item-plain">Short demos for your top-seller products.</div>
+          <div class="menu-item-body">
+            60-90 second videos showing how to use Pain Remedy, the Facial Rejuvenation system, the deodorants, the hydrosols. One per top-seller. Embedded on the product page and YouTube. <em>Why it matters: products with video on the page convert 30-50% better than products without.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Editorial Content & Blog SEO</div>
+            <div class="menu-item-tag">Organic traffic</div>
+          </div>
+          <div class="menu-item-plain">Articles that bring people to the site from Google.</div>
+          <div class="menu-item-body">
+            A series of in-depth articles targeting the searches your customers actually run: "essential oil for sleep," "natural acne treatment," "menopause hot flash relief." Each article is researched, written, and optimized to rank. <em>Why it matters: this is the channel that compounds. One article published this year keeps bringing traffic for years.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Email Automation Flows</div>
+            <div class="menu-item-tag">Revenue lift</div>
+          </div>
+          <div class="menu-item-plain">Emails that recover sales and bring customers back.</div>
+          <div class="menu-item-body">
+            Abandoned cart recovery, post-purchase follow-up, win-back for lapsed customers, welcome series for new subscribers. Set up in Klaviyo or your platform of choice. <em>Why it matters: abandoned cart alone typically recovers 10-15% of would-be-lost revenue once it's running.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Reviews & UGC Integration</div>
+            <div class="menu-item-tag">Conversion + SEO</div>
+          </div>
+          <div class="menu-item-plain">Verified reviews on every product page.</div>
+          <div class="menu-item-body">
+            Real customer reviews collected automatically after purchase, displayed on each product page, and included in the structured data Google reads. <em>Why it matters: star ratings in search results dramatically increase clicks. Verified reviews on a page increase trust at the moment of purchase.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">AI Aromatherapy Assistant</div>
+            <div class="menu-item-tag">Customer service</div>
+          </div>
+          <div class="menu-item-plain">A chat assistant trained on your usage guide.</div>
+          <div class="menu-item-body">
+            An always-available assistant on the site that answers customer questions using your existing usage guide and chemistry reference chart. Recommends products by ailment. <em>Why it matters: most customers leave without buying because they don't know which product to choose. This answers that question 24/7 without you doing it personally.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Press & Media Kit Page</div>
+            <div class="menu-item-tag">Authority</div>
+          </div>
+          <div class="menu-item-plain">One page for journalists, bloggers, and partners.</div>
+          <div class="menu-item-body">
+            A polished resource page with your bio, high-resolution brand assets, product shot library, press history, and contact for media inquiries. <em>Why it matters: it makes it easy for press to write about you accurately. The current site doesn't have one — every inquiry becomes a back-and-forth.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Condition-Based Landing Pages</div>
+            <div class="menu-item-tag">Conversion + SEO</div>
+          </div>
+          <div class="menu-item-plain">Pages for what people are actually searching for.</div>
+          <div class="menu-item-body">
+            Dedicated pages built around the conditions your products address — "Natural Pain Relief," "Acne & Skin Conditions," "Menopause Support," "Sleep & Anxiety." Each page recommends the right products and ranks for that condition in search. <em>Why it matters: people don't search for "essential oil," they search for what they want fixed.</em>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PLATFORM ADDITIONS -->
+    <div class="section">
+      <div class="section-eyebrow">Optional · Larger additions</div>
+      <h2 class="section-title">Platform additions</h2>
+      <p class="section-intro">Bigger pieces that get scoped separately. None of these are required for the rebuild — they're capabilities you can layer in when the timing is right.</p>
+
+      <div class="menu">
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Modern Admin Migration</div>
+            <div class="menu-item-tag">Optional upgrade</div>
+          </div>
+          <div class="menu-item-plain">Replace the WordPress admin with a cleaner, modern interface.</div>
+          <div class="menu-item-body">
+            For when you're ready to leave WordPress entirely. Migrate your product catalog, customer accounts, and order history from WooCommerce to <em>Medusa</em> — a modern, open-source store engine with a cleaner admin and no plugin treadmill. The customer-facing Cloudflare site stays exactly the same; only the back-end you log into changes. <em>Why consider it: a calmer admin experience, lower long-term maintenance, owned forever, no license fees.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Wholesale / B2B Portal</div>
+            <div class="menu-item-tag">New revenue</div>
+          </div>
+          <div class="menu-item-plain">A separate experience for retailers and practitioners.</div>
+          <div class="menu-item-body">
+            Approved-account login, wholesale pricing, bulk order minimums, and a separate catalog view for retail partners. Distinct from the retail storefront so the two don't get confused. <em>Why consider it: practitioner and retail wholesale is often higher-margin and more predictable than retail.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Subscription Products</div>
+            <div class="menu-item-tag">Recurring revenue</div>
+          </div>
+          <div class="menu-item-plain">Auto-ship for the formulas customers reorder.</div>
+          <div class="menu-item-body">
+            Customer-managed subscriptions on top sellers: monthly, quarterly, or custom intervals. They can pause, skip, or change formulas from their account. <em>Why consider it: subscription revenue is the most stable kind. It also signals reliability to investors and partners.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Practitioner Program</div>
+            <div class="menu-item-tag">Authority + Revenue</div>
+          </div>
+          <div class="menu-item-plain">Verified accounts for aromatherapists and clinicians.</div>
+          <div class="menu-item-body">
+            A program for the aromatherapists, nurses, and naturopaths already using your formulas in practice. Verification, special pricing, clinical reference materials, and a directory listing on the site. <em>Why consider it: it formalizes the credibility you already have in the practitioner community.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Affiliate & Referral Program</div>
+            <div class="menu-item-tag">Growth channel</div>
+          </div>
+          <div class="menu-item-plain">Let your existing fans earn for referring customers.</div>
+          <div class="menu-item-body">
+            Trackable referral links, commission tiers, an affiliate dashboard, and automated payouts. Designed for the customers and practitioners who already recommend you. <em>Why consider it: the highest-converting traffic is word-of-mouth. This rewards it and makes it trackable.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Photography & Visual Refresh</div>
+            <div class="menu-item-tag">Brand</div>
+          </div>
+          <div class="menu-item-plain">Standardized, on-brand product imagery.</div>
+          <div class="menu-item-body">
+            A full refresh of product photography — consistent lighting, backgrounds, and presentation across the entire catalog. Includes lifestyle shots for hero use. Scoped per shoot day. <em>Why consider it: the current photos are a mix of formats and ages. Unified imagery is what makes a catalog feel premium.</em>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="section">
+      <div class="section-eyebrow">What happens next</div>
+      <h2 class="section-title">Our process from here</h2>
+      <p class="section-intro">Four steps from this document to a finished site.</p>
+
+      <div class="process-steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">Scope conversation</div>
+          <div class="step-desc">A 45-minute call with Dawn. We walk through this document, answer questions, decide which growth services to include.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">Formal proposal</div>
+          <div class="step-desc">Within 48 hours of the call, you receive a final proposal with fixed pricing, timeline, and deliverables locked to your chosen scope.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">Build phase</div>
+          <div class="step-desc">Deposit clears, work begins. Weekly check-ins with Dawn. Progress shown on a staging site you can review at any time.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-title">Launch & handoff</div>
+          <div class="step-desc">Final review, training session, launch. 30 days of post-launch support included for questions, fixes, or quick adjustments.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PRICING NOTE -->
+    <div class="section">
+      <div class="section-eyebrow">A note on pricing</div>
+      <h2 class="section-title">Scope first, then a single fixed number</h2>
+
+      <div class="pricing-note">
+        <div class="label">Scope-dependent by design</div>
+        <h3>The price depends on what you choose to include.</h3>
+        <p>The foundation rebuild is one package. The growth services and platform additions are each priced individually. A focused engagement looks very different from a comprehensive one that adds video, content, subscriptions, and a wholesale portal.</p>
+        <p>Rather than guess at scope before talking to you, we wait until the scope conversation, then quote a single fixed number for the full engagement. <strong>No hourly billing. No surprise charges.</strong> Half on signature, half at launch.</p>
+        <p>Your first step is the scope conversation with Dawn — no pricing pressure, just a walk through this document so you can see what's in and what's out. The number follows from there.</p>
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <h2>Ready to talk through it?</h2>
+      <p>Dawn is your first call. She'll walk you through this document at whatever pace works, answer anything, and set up the scope conversation when you're ready. From there, the full proposal lands within 48 hours.</p>
+      <div class="contact">
+        Primary contact · <strong>Dawn Drouillard</strong> · Producer<br>
+        Project lead · <strong>Josh Sundby</strong> · Design & Build
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

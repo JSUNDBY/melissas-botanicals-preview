@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Melissa's Botanicals — Pitch Package</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-red: #b2292e;
+      --brand-red-soft: #fbeaec;
+      --brand-dark: #1a1a1a;
+      --brand-cream: #faf8f5;
+      --brand-warm: #f5f0eb;
+      --text: #2c2c2c;
+      --text-light: #6b6b6b;
+      --border: #e5e0db;
+      --bg: #faf8f5;
+      --accent-gold: #b89456;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-weight: 400;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: var(--brand-dark);
+      color: white;
+      padding: 80px 40px 64px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--brand-red);
+    }
+    .hero .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.55;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+    }
+    .hero h1 strong { font-weight: 600; color: #f0d5d6; }
+    .hero .subtitle {
+      font-size: 15px;
+      opacity: 0.65;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .hero .team {
+      display: inline-flex;
+      gap: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 12.5px;
+      opacity: 0.7;
+    }
+    .hero .team-member { text-align: center; }
+    .hero .team-role {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.55;
+      margin-bottom: 3px;
+    }
+    .hero .team-name { font-weight: 500; }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 56px 24px 64px;
+    }
+
+    .intro {
+      background: white;
+      border-left: 3px solid var(--brand-red);
+      padding: 26px 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .intro p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .intro strong { color: var(--brand-dark); }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 24px;
+      color: var(--brand-dark);
+    }
+
+    .docs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .doc-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand-red);
+      border-radius: 4px;
+      padding: 28px 32px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+    .doc-card:hover {
+      box-shadow: 0 4px 18px rgba(178,41,46,0.10);
+      transform: translateY(-1px);
+    }
+
+    .doc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--brand-red);
+      line-height: 1;
+      min-width: 50px;
+    }
+
+    .doc-meta {
+      flex: 1;
+    }
+    .doc-meta .doc-eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .doc-meta h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 6px;
+    }
+    .doc-meta p {
+      font-size: 13.5px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+    .doc-arrow {
+      font-size: 22px;
+      color: var(--brand-red);
+      align-self: center;
+      transition: transform 0.15s;
+    }
+    .doc-card:hover .doc-arrow { transform: translateX(4px); }
+
+    .footer {
+      text-align: center;
+      padding: 32px 20px 48px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 56px 20px 44px; }
+      .hero h1 { font-size: 36px; }
+      .hero .team { flex-direction: column; gap: 14px; }
+      .container { padding: 40px 18px 48px; }
+      .section-title { font-size: 24px; }
+      .doc-card { flex-direction: column; gap: 14px; padding: 22px 24px; }
+      .doc-num { font-size: 32px; min-width: 0; }
+      .doc-arrow { align-self: flex-end; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="eyebrow">Pitch Package · May 2026</div>
+    <h1><strong>Melissa's Botanicals</strong></h1>
+    <div class="subtitle">Website rebuild, owner-managed catalog, and growth services for the next phase of the business.</div>
+    <div class="team">
+      <div class="team-member">
+        <span class="team-role">Producer</span>
+        <span class="team-name">Dawn Drouillard</span>
+      </div>
+      <div class="team-member">
+        <span class="team-role">Design & Build</span>
+        <span class="team-name">Josh Sundby</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="intro">
+      <p>This package contains three documents. <strong>Start with the site audit</strong> — it lays out what's there today and what the rebuild covers. <strong>Then read the pre-proposal</strong> — it covers the optional growth services we can layer in alongside the rebuild. <strong>The mockup</strong> is a visual preview of the new catalog experience.</p>
+    </div>
+
+    <div class="section-label">The documents</div>
+    <h2 class="section-title">Click through in order</h2>
+
+    <div class="docs">
+
+      <a href="site-report.html" class="doc-card">
+        <div class="doc-num">01</div>
+        <div class="doc-meta">
+          <div class="doc-eyebrow">Audit · 10 min read</div>
+          <h3>Site Audit & Scope of Work</h3>
+          <p>What we found on the current site, in plain English. Thirteen findings, six work areas, every observation tied back to a business impact you can act on.</p>
+        </div>
+        <div class="doc-arrow">→</div>
+      </a>
+
+      <a href="proposal.html" class="doc-card">
+        <div class="doc-num">02</div>
+        <div class="doc-meta">
+          <div class="doc-eyebrow">Pre-proposal · 12 min read</div>
+          <h3>The Rebuild + Growth Services</h3>
+          <p>The foundation rebuild plus optional growth services you can layer in — video, content, email automation, subscriptions, wholesale, and more. Pricing is settled in the scope conversation, not in this document.</p>
+        </div>
+        <div class="doc-arrow">→</div>
+      </a>
+
+      <a href="mockup.html" class="doc-card">
+        <div class="doc-num">03</div>
+        <div class="doc-meta">
+          <div class="doc-eyebrow">Visual preview · interactive</div>
+          <h3>Catalog Mockup</h3>
+          <p>An interactive preview of what the new catalog experience looks like — real search, real filters, real product detail modals. Click around to get a feel.</p>
+        </div>
+        <div class="doc-arrow">→</div>
+      </a>
+
+    </div>
+
+    <div class="section-label">Next step</div>
+    <h2 class="section-title">A 45-minute scope conversation</h2>
+    <div class="intro" style="margin-bottom: 0;">
+      <p>After you've read through, Dawn will set up a call to walk through the documents, answer questions, and decide together which growth services to include. The formal proposal — with fixed pricing and timeline — lands in your inbox within 48 hours of that call.</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Prepared for Melissa Farris · Melissa's Botanicals · Bloomington, MN
+  </div>
+
+</body>
+</html>
