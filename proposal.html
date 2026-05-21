@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pre-Proposal — Melissa's Botanicals</title>
+  <title>Pre-Proposal: Melissa's Botanicals</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -257,6 +257,19 @@
       font-size: 12.5px;
     }
 
+    /* === MENU GROUPS === */
+    .menu-group-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--brand-dark);
+      margin: 32px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.3px;
+    }
+    .menu-group-title:first-of-type { margin-top: 0; }
+
     /* === MODULAR MENU === */
     .menu {
       display: grid;
@@ -490,9 +503,10 @@
     <div class="opening">
       <p><em>You built something rare.</em></p>
       <p>Twenty-seven years of clinical aromatherapy practice. The first 100% certified organic essential oils in the American market. A catalog of 115 products sourced from cooperatives in France, Bulgaria, Australia, Corsica, and Tunisia. Recognition in France as <em>Formulateur en aromathérapie scientifique et médicale</em>. A boutique in Bloomington that customers describe as a French apothecary in the Midwest.</p>
-      <p>The website doesn't reflect any of that yet. It works — but it's holding the business back from doing what it could be doing. It's slow on phones. It doesn't show up properly in search. It can't be updated without a developer. And the customer landing on it has to scroll through 115 products to find the one thing they came for.</p>
-      <p>What we're proposing is a <em>new website</em>. Not a tune-up of the current one — a complete new build on modern infrastructure, ready to scale with the business. The only thing that stays the same is the WooCommerce admin you log into to manage products. Everything customers see is built from scratch.</p>
-      <p>This document outlines how the new site comes together, plus the optional growth services you can layer in alongside it. We've kept the core build separate from the growth services so you can choose the scope that fits this season.</p>
+      <p>The website doesn't reflect any of that yet. It works, but it's holding the business back from doing what it could be doing. It's slow on phones. It doesn't show up properly in search. It can't be updated without a developer. And the customer landing on it has to scroll through 115 products to find the one thing they came for.</p>
+      <p>What we're proposing is a <em>new website</em>, built on the stack a modern ecommerce business actually needs. Not a tune-up of the current one, not a thin coat of paint, a complete new build on infrastructure designed for the next ten years, not the last ten.</p>
+      <p>The current WordPress site has served you. But the bolt-on plugins, the page-builder layouts, the developer dependency, the slow phone loads, those aren't going to take you to the next chapter of the business. The new site is built with the tools an ecommerce-first company would choose if they were starting fresh in 2026.</p>
+      <p>This document outlines how the new site comes together, the growth services you can layer in alongside it, and exactly how we move your business off WordPress without losing a customer, an order, or a Tuesday morning of your time.</p>
     </div>
 
     <!-- TEAM -->
@@ -508,7 +522,7 @@
           <div class="team-name">Dawn Drouillard</div>
           <div class="team-tagline">Your day-to-day point of contact</div>
           <div class="team-bio">
-            Dawn keeps the project moving. She's your single contact for status, decisions, scheduling, and feedback. Anything you'd otherwise need to chase down — when does this go live, can we tweak this, what about this other idea — goes through her. She coordinates with Josh on your behalf so you can stay focused on the business.
+            Dawn keeps the project moving. She's your single contact for status, decisions, scheduling, and feedback. Anything you'd otherwise need to chase down, when does this go live, can we tweak this, what about this other idea, goes through her. She coordinates with Josh on your behalf so you can stay focused on the business.
           </div>
         </div>
 
@@ -531,10 +545,10 @@
       <p class="section-intro">The project is built as a foundation plus a menu of optional growth services. You select which growth services to include up front; pricing is settled once the scope is settled.</p>
 
       <div class="working-model">
-        <p><strong>The new website</strong> is the core build — a complete customer-facing site that takes the catalog from "needs a developer for every change" to "you run it yourself." Every engagement starts here.</p>
-        <p><strong>The growth services</strong> are optional. They cover the pieces that compound: video, content, email automation, structured data, reviews, and more. Most clients choose two or three to launch with.</p>
-        <p><strong>Platform additions</strong> are larger, optional capabilities — wholesale portal, subscription products, the option to retire WordPress entirely later. These get scoped separately if you want them.</p>
-        <p><strong>One deposit, one delivery date.</strong> Whatever you choose gets built, tested, and launched together as the new site — not in fragments.</p>
+        <p><strong>The new website</strong> is the core build, a complete new customer-facing site running on modern infrastructure, with a modern admin that's actually pleasant to use. Every engagement starts here.</p>
+        <p><strong>The growth services</strong> are optional, modular, and grouped by what they do: bring new visitors in, turn visitors into customers, or keep customers coming back. Most clients pick two or three to launch with.</p>
+        <p><strong>Platform additions</strong> are larger, optional capabilities, wholesale portal, subscription products, international expansion, photography. These get scoped separately if you want them.</p>
+        <p><strong>One deposit, one delivery date.</strong> Whatever you choose gets built, tested, and launched together as the new site, not in fragments.</p>
       </div>
     </div>
 
@@ -580,46 +594,82 @@
 
     <!-- ARCHITECTURE -->
     <div class="section">
-      <div class="section-eyebrow">Where your store lives</div>
-      <h2 class="section-title">A new site on a faster home, the admin you know</h2>
-      <p class="section-intro">Your new website lives on <strong>Cloudflare</strong> — the same global delivery network used by some of the largest sites on the internet — while your <strong>existing WooCommerce admin stays exactly where it is</strong>. You log in the way you do today; customers see a brand-new site that loads in under a second from anywhere in the world.</p>
+      <div class="section-eyebrow">Where it lives, what runs it</div>
+      <h2 class="section-title">Built for the next ten years, not the last ten</h2>
+      <p class="section-intro">Your new website runs on a modern stack. <strong>Cloudflare</strong> serves the customer-facing site at the edge of the internet, fast everywhere. <strong>Medusa</strong>, a modern open-source store engine, runs your products, orders, customers, and inventory behind the scenes. No more WordPress. No more plugin treadmill. No more "needs a developer for every change."</p>
 
       <div class="arch-intro">
-        <p>The simplest way to think about it: <strong>two halves of the same store.</strong> The half you log into stays familiar. The half your customers see is completely new — new code, new design, new infrastructure. Add a product in WooCommerce as you always have, and it appears on the new site automatically.</p>
+        <p>The intent: build with the tools an ecommerce business needs <em>today</em>, not a stack assembled from 2014. WordPress was the right answer when you started. Medusa and Cloudflare are what someone designing this from scratch in 2026 would actually choose, and your business deserves that level of seriousness.</p>
+        <p>📄 <strong>See the admin in action:</strong> the <em>admin mockup</em> in your package shows exactly what your new day-to-day will feel like, adding a product, processing an order, checking inventory.</p>
       </div>
 
       <div class="arch-grid">
 
         <div class="arch-card recommend">
           <div class="arch-card-label">For your customers</div>
-          <div class="arch-card-title">A brand-new site that loads instantly</div>
+          <div class="arch-card-title">A site that loads in milliseconds</div>
           <div class="arch-card-body">
-            Served from Cloudflare's edge network — the new website loads in milliseconds on phones, tablets, and laptops, anywhere in the world. New design, new code, new infrastructure. No more WordPress overhead, no more plugin slowdown.
+            Served from Cloudflare's edge network, the same one powering some of the largest sites on the internet. Customers anywhere in the world see your products load near-instantly. New design, new code, new infrastructure. No more WordPress overhead, no more plugin slowdown.
           </div>
         </div>
 
         <div class="arch-card recommend">
           <div class="arch-card-label">For you</div>
-          <div class="arch-card-title">The admin you already know</div>
+          <div class="arch-card-title">A modern admin built for ecommerce</div>
           <div class="arch-card-body">
-            You log into the same WooCommerce admin you use today. Same buttons, same workflow, same place. Add a product, change a price, swap a photo — it shows up on the new fast site automatically. Nothing to relearn.
+            Logging in goes from "open WordPress, find the right menu, click through Elementor, hope nothing breaks" to a clean, modern interface designed specifically for running a store. Add a product in under two minutes. See orders at a glance. Update inventory with a click. The admin you've avoided becomes one you actually open.
           </div>
         </div>
 
         <div class="arch-card">
           <div class="arch-card-label">Free with Cloudflare</div>
-          <div class="arch-card-title">Perks built into the platform</div>
+          <div class="arch-card-title">Modern perks, no extra cost</div>
           <div class="arch-card-body">
-            Cloudflare's free plan includes a global CDN, free SSL, DDoS protection, and Cloudflare Images for automatic photo optimization. Cloudflare Stream is available for hosting product and brand videos. Hosting your new site here costs effectively nothing per month.
+            Cloudflare's free plan includes a global CDN, free SSL, DDoS protection, and Cloudflare Images for automatic photo optimization. Cloudflare Stream is available for product and brand videos. Hosting your new site costs effectively nothing per month, Medusa's back-end runs for under $20/month.
           </div>
         </div>
 
         <div class="arch-card">
-          <div class="arch-card-label">If you want more later</div>
-          <div class="arch-card-title">A modern admin is available too</div>
+          <div class="arch-card-label">Alternative path</div>
+          <div class="arch-card-title">Prefer to keep WordPress?</div>
           <div class="arch-card-body">
-            If you decide later that you'd like to replace the WordPress admin with something cleaner and more modern, there's a follow-on migration path. See <em>Modern Admin Migration</em> in platform additions — it's an optional upgrade, not required.
+            If after looking at it you'd rather keep the WooCommerce admin you have today, for whatever reason, including existing integrations we should preserve, we can build the same new customer-facing site against your existing WordPress. The customer experience is identical; you keep your current admin. This is the version we can quote if that's what you want.
           </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MIGRATION -->
+    <div class="section">
+      <div class="section-eyebrow">The transition</div>
+      <h2 class="section-title">How we move you off WordPress, safely</h2>
+      <p class="section-intro">Migration is the part of a rebuild that gets people nervous. Here's exactly how the transition works so nothing is lost, nothing breaks at launch, and you have time to actually look at the new system before you're committed to it.</p>
+
+      <div class="process-steps" style="grid-template-columns: repeat(4, 1fr);">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">Your current site keeps running</div>
+          <div class="step-desc">During the build, melissasbotanicals.com stays exactly where it is. Customers shop normally, orders flow normally. Nothing on the live site is touched.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">We migrate your data to staging</div>
+          <div class="step-desc">All 115 products, customer accounts, and order history get exported from WooCommerce and imported into Medusa. The new system is built on a staging URL where only you and Dawn can see it.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">You test it before launch</div>
+          <div class="step-desc">You spend as much time as you need on staging, adding test products, processing test orders, exploring the new admin. We don't go live until you've signed off on every flow.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-title">Launch with old site as backup</div>
+          <div class="step-desc">Traffic moves to the new site. Your old WordPress install stays online for 90 days as backup, if anything unexpected comes up, full fallback exists. After 90 clean days, we archive it with a complete export.</div>
         </div>
 
       </div>
@@ -629,95 +679,133 @@
     <div class="section">
       <div class="section-eyebrow">Optional · Pick what fits</div>
       <h2 class="section-title">Growth services menu</h2>
-      <p class="section-intro">The pieces that turn a working website into one that compounds. Each is priced individually. Most clients choose two or three for the launch and add the rest later.</p>
+      <p class="section-intro">The pieces that turn a working website into one that compounds. Grouped by what they do: bring new visitors in, turn visitors into customers, build trust, or keep customers coming back. Each item is priced individually. Most clients pick two or three to launch with.</p>
 
+      <h3 class="menu-group-title">Discovery, bring new visitors in</h3>
       <div class="menu">
 
         <div class="menu-item">
           <div class="menu-item-head">
-            <div class="menu-item-title">Brand Story Video</div>
-            <div class="menu-item-tag">Trust + SEO</div>
+            <div class="menu-item-title">Programmatic SEO Library</div>
+            <div class="menu-item-tag">300+ pages</div>
           </div>
-          <div class="menu-item-plain">A short film about Melissa and the work.</div>
+          <div class="menu-item-plain">Hundreds of pages built from your existing content, designed to rank.</div>
           <div class="menu-item-body">
-            A 3-5 minute hero video for the homepage and About page: your background, the French Medical Aromatherapy training, the sourcing relationships, what makes the formulas different. Narrated, scored, and edited. <em>Why it matters: brand-story video on a homepage measurably increases time-on-site, trust, and conversion.</em>
+            We generate a structured library of search-targeted pages from your chemistry chart, usage guide, and product catalog: <em>per-oil deep-dives (100 pages), condition-specific landing pages (30+ pages), DIY blend recipes (50 pages), Minnesota-area local pages (20 pages), and competitor comparison pages</em>. Each one is built to rank for what your customers actually Google. <em>This is the channel that produces compounding organic traffic. One library, built once, keeps pulling visitors in for years.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Editorial Content & Blog</div>
+            <div class="menu-item-tag">Long-form SEO</div>
+          </div>
+          <div class="menu-item-plain">In-depth articles that answer real customer questions.</div>
+          <div class="menu-item-body">
+            Long-form blog content targeting high-intent searches: <em>"essential oil for sleep," "natural acne treatment," "menopause hot flash relief."</em> Each article is researched, written, and optimized to rank. Complements the programmatic library with deeper authority pieces. <em>One good article published this year keeps bringing traffic for years.</em>
+          </div>
+        </div>
+
+      </div>
+
+      <h3 class="menu-group-title">Conversion, turn visitors into customers</h3>
+      <div class="menu">
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Product Finder Quiz</div>
+            <div class="menu-item-tag">High-conversion funnel</div>
+          </div>
+          <div class="menu-item-plain">"Tell us what's going on. We'll show you what to use."</div>
+          <div class="menu-item-body">
+            An interactive 5-question quiz that takes a visitor from "what oil do I need?" to a personalized formula recommendation. <em>What are you trying to address? How does it show up? What have you tried before?</em> Your clinical expertise drives the recommendation logic. Email capture at the end. <em>Why it matters: it converts the "I don't know which one to buy" hesitation into a sale. Excellent for paid ad funnels.</em>
           </div>
         </div>
 
         <div class="menu-item">
           <div class="menu-item-head">
             <div class="menu-item-title">Product Education Videos</div>
-            <div class="menu-item-tag">Conversion</div>
+            <div class="menu-item-tag">Top-seller boost</div>
           </div>
-          <div class="menu-item-plain">Short demos for your top-seller products.</div>
+          <div class="menu-item-plain">Short demos for the products people buy most.</div>
           <div class="menu-item-body">
-            60-90 second videos showing how to use Pain Remedy, the Facial Rejuvenation system, the deodorants, the hydrosols. One per top-seller. Embedded on the product page and YouTube. <em>Why it matters: products with video on the page convert 30-50% better than products without.</em>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-head">
-            <div class="menu-item-title">Editorial Content & Blog SEO</div>
-            <div class="menu-item-tag">Organic traffic</div>
-          </div>
-          <div class="menu-item-plain">Articles that bring people to the site from Google.</div>
-          <div class="menu-item-body">
-            A series of in-depth articles targeting the searches your customers actually run: "essential oil for sleep," "natural acne treatment," "menopause hot flash relief." Each article is researched, written, and optimized to rank. <em>Why it matters: this is the channel that compounds. One article published this year keeps bringing traffic for years.</em>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-head">
-            <div class="menu-item-title">Email Automation Flows</div>
-            <div class="menu-item-tag">Revenue lift</div>
-          </div>
-          <div class="menu-item-plain">Emails that recover sales and bring customers back.</div>
-          <div class="menu-item-body">
-            Abandoned cart recovery, post-purchase follow-up, win-back for lapsed customers, welcome series for new subscribers. Set up in Klaviyo or your platform of choice. <em>Why it matters: abandoned cart alone typically recovers 10-15% of would-be-lost revenue once it's running.</em>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-head">
-            <div class="menu-item-title">Reviews & UGC Integration</div>
-            <div class="menu-item-tag">Conversion + SEO</div>
-          </div>
-          <div class="menu-item-plain">Verified reviews on every product page.</div>
-          <div class="menu-item-body">
-            Real customer reviews collected automatically after purchase, displayed on each product page, and included in the structured data Google reads. <em>Why it matters: star ratings in search results dramatically increase clicks. Verified reviews on a page increase trust at the moment of purchase.</em>
+            60-90 second videos showing how to use Pain Remedy, the Facial Rejuvenation system, the deodorants, the hydrosols. One per top-seller. Embedded on the product page and uploaded to YouTube. <em>Products with video on the page convert 30-50% better than products without.</em>
           </div>
         </div>
 
         <div class="menu-item">
           <div class="menu-item-head">
             <div class="menu-item-title">AI Aromatherapy Assistant</div>
-            <div class="menu-item-tag">Customer service</div>
+            <div class="menu-item-tag">24/7 customer service</div>
           </div>
-          <div class="menu-item-plain">A chat assistant trained on your usage guide.</div>
+          <div class="menu-item-plain">A chat assistant trained on your knowledge.</div>
           <div class="menu-item-body">
-            An always-available assistant on the site that answers customer questions using your existing usage guide and chemistry reference chart. Recommends products by ailment. <em>Why it matters: most customers leave without buying because they don't know which product to choose. This answers that question 24/7 without you doing it personally.</em>
+            An always-available assistant on the site that answers customer questions using your usage guide, chemistry reference, and product catalog. Recommends products by symptom. <em>Most customers leave without buying because they don't know which product to choose. This answers that question 24/7, in your voice, with your expertise, without you doing it personally.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Reviews & UGC Integration</div>
+            <div class="menu-item-tag">Trust + SEO</div>
+          </div>
+          <div class="menu-item-plain">Verified reviews on every product page.</div>
+          <div class="menu-item-body">
+            Real customer reviews collected automatically after purchase, displayed on each product page, and included in the structured data Google reads. <em>Star ratings in search results dramatically increase click-through. Verified reviews on the product page increase trust at the moment of purchase.</em>
+          </div>
+        </div>
+
+      </div>
+
+      <h3 class="menu-group-title">Authority, your story, your voice</h3>
+      <div class="menu">
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Brand Story Video</div>
+            <div class="menu-item-tag">Hero film</div>
+          </div>
+          <div class="menu-item-plain">A short film about you, the work, and the difference.</div>
+          <div class="menu-item-body">
+            A 3-5 minute hero video for the homepage and About page: your background, the French Medical Aromatherapy training, the sourcing partnerships across France, Bulgaria, Australia, and Corsica, what makes your formulas different. Narrated, scored, and edited. <em>Brand-story video on a homepage measurably increases time-on-site, trust, and conversion.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Founder's Voice, Newsletter & Long-Form</div>
+            <div class="menu-item-tag">Authority compounds</div>
+          </div>
+          <div class="menu-item-plain">You, writing monthly. Like a Substack but on your own site.</div>
+          <div class="menu-item-body">
+            A monthly long-form email and blog post in your voice, about formulas, sourcing trips, clinical observations, the difference between marketing aromatherapy and medical aromatherapy. Real substance. Builds an audience that compounds across years. <em>You have 27 years of stories no one else can tell. This is the engine for turning that into ongoing authority and a growing email list.</em>
           </div>
         </div>
 
         <div class="menu-item">
           <div class="menu-item-head">
             <div class="menu-item-title">Press & Media Kit Page</div>
-            <div class="menu-item-tag">Authority</div>
+            <div class="menu-item-tag">Make press easy</div>
           </div>
-          <div class="menu-item-plain">One page for journalists, bloggers, and partners.</div>
+          <div class="menu-item-plain">One polished page for journalists, bloggers, and partners.</div>
           <div class="menu-item-body">
-            A polished resource page with your bio, high-resolution brand assets, product shot library, press history, and contact for media inquiries. <em>Why it matters: it makes it easy for press to write about you accurately. The current site doesn't have one — every inquiry becomes a back-and-forth.</em>
+            A resource page with your bio, high-resolution brand assets, product shot library, press history, and contact for media inquiries. <em>Makes it easy for press to write about you accurately. The current site doesn't have one, every inquiry becomes a back-and-forth.</em>
           </div>
         </div>
 
+      </div>
+
+      <h3 class="menu-group-title">Retention, bring them back</h3>
+      <div class="menu">
+
         <div class="menu-item">
           <div class="menu-item-head">
-            <div class="menu-item-title">Condition-Based Landing Pages</div>
-            <div class="menu-item-tag">Conversion + SEO</div>
+            <div class="menu-item-title">Email Automation Flows</div>
+            <div class="menu-item-tag">Direct revenue lift</div>
           </div>
-          <div class="menu-item-plain">Pages for what people are actually searching for.</div>
+          <div class="menu-item-plain">Emails that recover sales and bring customers back.</div>
           <div class="menu-item-body">
-            Dedicated pages built around the conditions your products address — "Natural Pain Relief," "Acne & Skin Conditions," "Menopause Support," "Sleep & Anxiety." Each page recommends the right products and ranks for that condition in search. <em>Why it matters: people don't search for "essential oil," they search for what they want fixed.</em>
+            Abandoned cart recovery, post-purchase follow-up, win-back for lapsed customers, welcome series for new subscribers. Set up in Klaviyo or your platform of choice. <em>Abandoned cart alone typically recovers 10-15% of would-be-lost revenue once it's running.</em>
           </div>
         </div>
 
@@ -728,29 +816,40 @@
     <div class="section">
       <div class="section-eyebrow">Optional · Larger additions</div>
       <h2 class="section-title">Platform additions</h2>
-      <p class="section-intro">Bigger pieces that get scoped separately. None of these are required for the rebuild — they're capabilities you can layer in when the timing is right.</p>
+      <p class="section-intro">Bigger pieces that get scoped separately. None of these are required for the rebuild, they're capabilities you can layer in when the timing is right.</p>
 
       <div class="menu">
 
         <div class="menu-item">
           <div class="menu-item-head">
-            <div class="menu-item-title">Modern Admin Migration</div>
-            <div class="menu-item-tag">Optional upgrade</div>
+            <div class="menu-item-title">French-Language Site</div>
+            <div class="menu-item-tag">International expansion</div>
           </div>
-          <div class="menu-item-plain">Replace the WordPress admin with a cleaner, modern interface.</div>
+          <div class="menu-item-plain">Your brand is French. The site should be too.</div>
           <div class="menu-item-body">
-            For when you're ready to leave WordPress entirely. Migrate your product catalog, customer accounts, and order history from WooCommerce to <em>Medusa</em> — a modern, open-source store engine with a cleaner admin and no plugin treadmill. The customer-facing Cloudflare site stays exactly the same; only the back-end you log into changes. <em>Why consider it: a calmer admin experience, lower long-term maintenance, owned forever, no license fees.</em>
+            A full French translation of the site, accessible via a language toggle. Opens the EU market entry, a market that takes your <em>Formulateur en aromathérapie scientifique</em> credentials more seriously than the US does. Includes localized product descriptions, currency display (EUR), and EU-compliant shipping notices. <em>Why consider it: your French Medical Aromatherapy training is a credential that's underused in an English-only market.</em>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-head">
+            <div class="menu-item-title">Practitioner Directory & Program</div>
+            <div class="menu-item-tag">Authority + B2B</div>
+          </div>
+          <div class="menu-item-plain">A public directory of clinicians using your formulas, plus a B2B program for them.</div>
+          <div class="menu-item-body">
+            Two-in-one: a public, searchable directory of aromatherapists, nurses, naturopaths, and clinics using your formulas, massive social proof for retail customers, paired with a verified-practitioner program with special pricing, clinical reference materials, and a private resource hub. <em>Why consider it: it formalizes the credibility you already have in the practitioner community, generates B2B revenue, and gives retail customers proof that real clinicians trust your work.</em>
           </div>
         </div>
 
         <div class="menu-item">
           <div class="menu-item-head">
             <div class="menu-item-title">Wholesale / B2B Portal</div>
-            <div class="menu-item-tag">New revenue</div>
+            <div class="menu-item-tag">New revenue channel</div>
           </div>
-          <div class="menu-item-plain">A separate experience for retailers and practitioners.</div>
+          <div class="menu-item-plain">A separate experience for retailers and large clinics.</div>
           <div class="menu-item-body">
-            Approved-account login, wholesale pricing, bulk order minimums, and a separate catalog view for retail partners. Distinct from the retail storefront so the two don't get confused. <em>Why consider it: practitioner and retail wholesale is often higher-margin and more predictable than retail.</em>
+            Approved-account login, wholesale pricing tiers, bulk order minimums, and a separate catalog view for retail partners. Distinct from the retail storefront so the two don't collide. <em>Why consider it: practitioner and retail wholesale is often higher-margin and more predictable than direct-to-consumer.</em>
           </div>
         </div>
 
@@ -761,25 +860,14 @@
           </div>
           <div class="menu-item-plain">Auto-ship for the formulas customers reorder.</div>
           <div class="menu-item-body">
-            Customer-managed subscriptions on top sellers: monthly, quarterly, or custom intervals. They can pause, skip, or change formulas from their account. <em>Why consider it: subscription revenue is the most stable kind. It also signals reliability to investors and partners.</em>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-head">
-            <div class="menu-item-title">Practitioner Program</div>
-            <div class="menu-item-tag">Authority + Revenue</div>
-          </div>
-          <div class="menu-item-plain">Verified accounts for aromatherapists and clinicians.</div>
-          <div class="menu-item-body">
-            A program for the aromatherapists, nurses, and naturopaths already using your formulas in practice. Verification, special pricing, clinical reference materials, and a directory listing on the site. <em>Why consider it: it formalizes the credibility you already have in the practitioner community.</em>
+            Customer-managed subscriptions on top sellers, monthly, quarterly, or custom intervals. They can pause, skip, or swap formulas from their account. <em>Why consider it: subscription revenue is the most stable kind. It also signals reliability to investors and partners.</em>
           </div>
         </div>
 
         <div class="menu-item">
           <div class="menu-item-head">
             <div class="menu-item-title">Affiliate & Referral Program</div>
-            <div class="menu-item-tag">Growth channel</div>
+            <div class="menu-item-tag">Word-of-mouth at scale</div>
           </div>
           <div class="menu-item-plain">Let your existing fans earn for referring customers.</div>
           <div class="menu-item-body">
@@ -790,11 +878,11 @@
         <div class="menu-item">
           <div class="menu-item-head">
             <div class="menu-item-title">Photography & Visual Refresh</div>
-            <div class="menu-item-tag">Brand</div>
+            <div class="menu-item-tag">Brand polish</div>
           </div>
-          <div class="menu-item-plain">Standardized, on-brand product imagery.</div>
+          <div class="menu-item-plain">Standardized, on-brand product imagery across the catalog.</div>
           <div class="menu-item-body">
-            A full refresh of product photography — consistent lighting, backgrounds, and presentation across the entire catalog. Includes lifestyle shots for hero use. Scoped per shoot day. <em>Why consider it: the current photos are a mix of formats and ages. Unified imagery is what makes a catalog feel premium.</em>
+            A full refresh of product photography, consistent lighting, backgrounds, and presentation across the entire catalog. Includes lifestyle shots for hero use. Scoped per shoot day. <em>Why consider it: the current photos are a mix of formats and ages. Unified imagery is what makes a catalog feel premium.</em>
           </div>
         </div>
 
@@ -846,7 +934,7 @@
         <h3>The price depends on what you choose to include.</h3>
         <p>The foundation rebuild is one package. The growth services and platform additions are each priced individually. A focused engagement looks very different from a comprehensive one that adds video, content, subscriptions, and a wholesale portal.</p>
         <p>Rather than guess at scope before talking to you, we wait until the scope conversation, then quote a single fixed number for the full engagement. <strong>No hourly billing. No surprise charges.</strong> Half on signature, half at launch.</p>
-        <p>Your first step is the scope conversation with Dawn — no pricing pressure, just a walk through this document so you can see what's in and what's out. The number follows from there.</p>
+        <p>Your first step is the scope conversation with Dawn, no pricing pressure, just a walk through this document so you can see what's in and what's out. The number follows from there.</p>
       </div>
     </div>
 

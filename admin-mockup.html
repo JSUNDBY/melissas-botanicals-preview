@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your New Admin: Melissa's Botanicals</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-red: #b2292e;
+      --brand-red-soft: #fbeaec;
+      --brand-dark: #1a1a1a;
+      --brand-cream: #faf8f5;
+      --brand-warm: #f5f0eb;
+      --text: #2c2c2c;
+      --text-light: #6b6b6b;
+      --border: #e5e0db;
+      --bg: #faf8f5;
+
+      /* Admin app colors (cleaner, app-like) */
+      --app-bg: #f6f7f9;
+      --app-card: #ffffff;
+      --app-border: #e5e7eb;
+      --app-text: #111827;
+      --app-text-light: #6b7280;
+      --app-text-muted: #9ca3af;
+      --app-sidebar: #1c1d22;
+      --app-sidebar-text: #d1d5db;
+      --app-sidebar-active: #2a2c34;
+      --app-accent: #b2292e;
+      --app-success: #10b981;
+      --app-warning: #f59e0b;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* === DOC HEADER === */
+    .doc-header {
+      background: var(--brand-dark);
+      color: white;
+      padding: 56px 40px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .doc-header::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--brand-red);
+    }
+    .doc-header .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.55;
+      margin-bottom: 14px;
+    }
+    .doc-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .doc-header h1 strong { font-weight: 600; color: #f0d5d6; }
+    .doc-header .subtitle {
+      font-size: 14px;
+      opacity: 0.65;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 24px 60px;
+    }
+
+    .intro {
+      background: white;
+      border-left: 3px solid var(--brand-red);
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .intro p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .intro p + p { margin-top: 10px; }
+    .intro strong { color: var(--brand-dark); }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--brand-red);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: var(--brand-dark);
+    }
+    .section-sub {
+      font-size: 14.5px;
+      color: var(--text-light);
+      margin-bottom: 22px;
+      max-width: 760px;
+      line-height: 1.7;
+    }
+    .section-block { margin-bottom: 44px; }
+
+    /* === ADMIN APP MOCKUP === */
+    .admin-frame {
+      background: var(--app-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+      border: 1px solid var(--app-border);
+    }
+
+    .admin-titlebar {
+      background: #e8e9ec;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #d1d5db;
+    }
+    .traffic-light {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .tl-red { background: #ed6a5e; }
+    .tl-yellow { background: #f4bf4f; }
+    .tl-green { background: #61c554; }
+    .url-bar {
+      flex: 1;
+      background: white;
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 12px;
+      color: var(--app-text-light);
+      margin-left: 12px;
+    }
+
+    .admin-body {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 580px;
+    }
+
+    /* Sidebar */
+    .admin-sidebar {
+      background: var(--app-sidebar);
+      color: var(--app-sidebar-text);
+      padding: 20px 0;
+    }
+    .sidebar-brand {
+      padding: 0 20px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 18px;
+    }
+    .sidebar-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+    }
+    .sidebar-brand-sub {
+      font-size: 10.5px;
+      color: var(--app-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-top: 2px;
+    }
+    .sidebar-nav { list-style: none; padding: 0; }
+    .sidebar-nav li {
+      padding: 9px 20px;
+      font-size: 13.5px;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-nav li.active {
+      background: var(--app-sidebar-active);
+      color: white;
+      border-left: 3px solid var(--app-accent);
+      padding-left: 17px;
+    }
+    .sidebar-nav .icon {
+      width: 16px;
+      height: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    /* Main content */
+    .admin-main {
+      padding: 28px 32px;
+      overflow: hidden;
+    }
+    .admin-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    .admin-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--app-text);
+    }
+    .admin-title-sub {
+      font-size: 12px;
+      color: var(--app-text-light);
+      margin-top: 2px;
+    }
+    .btn-primary {
+      background: var(--app-accent);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--app-text);
+      border: 1px solid var(--app-border);
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: default;
+    }
+
+    /* Stat cards */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .stat-card {
+      background: var(--app-card);
+      border: 1px solid var(--app-border);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--app-text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--app-text);
+      letter-spacing: -0.5px;
+    }
+    .stat-change {
+      font-size: 11.5px;
+      color: var(--app-success);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .stat-change.warn { color: var(--app-warning); }
+
+    /* Table */
+    .data-card {
+      background: var(--app-card);
+      border: 1px solid var(--app-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .data-card-head {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--app-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .data-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--app-text);
+    }
+    .data-card-link {
+      font-size: 12px;
+      color: var(--app-accent);
+      cursor: default;
+    }
+    table.admin-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .admin-table th {
+      text-align: left;
+      padding: 11px 18px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--app-text-light);
+      font-weight: 500;
+      background: #fafbfc;
+      border-bottom: 1px solid var(--app-border);
+    }
+    .admin-table td {
+      padding: 12px 18px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--app-border);
+      vertical-align: middle;
+    }
+    .admin-table tr:last-child td { border-bottom: none; }
+    .product-name {
+      font-weight: 500;
+      color: var(--app-text);
+    }
+    .product-sku {
+      font-size: 11px;
+      color: var(--app-text-muted);
+      font-family: 'SF Mono', Menlo, monospace;
+      margin-top: 2px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .badge-active { background: #d1fae5; color: #047857; }
+    .badge-low { background: #fef3c7; color: #b45309; }
+    .badge-draft { background: #f3f4f6; color: #6b7280; }
+    .product-thumb {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--brand-warm), #ebe2d2);
+      border-radius: 6px;
+      margin-right: 12px;
+      vertical-align: middle;
+      position: relative;
+    }
+    .product-thumb::after {
+      content: '🌿';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      opacity: 0.55;
+    }
+
+    /* === Add product modal preview === */
+    .form-preview {
+      background: var(--app-card);
+      border: 1px solid var(--app-border);
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+    .form-preview h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--app-text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--app-border);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+    .form-row.stacked {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      align-items: stretch;
+    }
+    .form-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--app-text);
+    }
+    .form-label-sub {
+      font-size: 11px;
+      color: var(--app-text-light);
+      margin-top: 1px;
+    }
+    .form-field {
+      background: white;
+      border: 1px solid var(--app-border);
+      border-radius: 5px;
+      padding: 7px 11px;
+      font-size: 13px;
+      color: var(--app-text);
+      min-height: 32px;
+      font-family: inherit;
+    }
+    .form-field.text-area {
+      min-height: 70px;
+      line-height: 1.5;
+    }
+    .form-field.with-prefix {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-field.with-prefix span:first-child { color: var(--app-text-light); }
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-actions {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--app-border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    /* === SPLIT VIEW (today vs new) === */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .compare-card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px 22px;
+      border: 1px solid var(--border);
+    }
+    .compare-card.today {
+      border-top: 3px solid #c0a87a;
+      background: #f9f5ee;
+    }
+    .compare-card.new {
+      border-top: 3px solid var(--brand-red);
+    }
+    .compare-label {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .today .compare-label { color: #8a7349; }
+    .new .compare-label { color: var(--brand-red); }
+    .compare-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 10px;
+    }
+    .compare-card p {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .compare-card p + p { margin-top: 8px; }
+    .compare-card em {
+      color: var(--brand-dark);
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    /* === FOOTER CALLOUT === */
+    .closing {
+      background: var(--brand-dark);
+      color: white;
+      border-radius: 6px;
+      padding: 38px 42px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .closing h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .closing p {
+      font-size: 14px;
+      opacity: 0.75;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1000px) {
+      .admin-body { grid-template-columns: 1fr; }
+      .admin-sidebar { display: none; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .compare { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; gap: 4px; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .doc-header { padding: 40px 20px 28px; }
+      .doc-header h1 { font-size: 30px; }
+      .container { padding: 32px 16px 48px; }
+      .admin-main { padding: 22px 18px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="label">Admin Mockup</div>
+    <h1><strong>Your New Admin</strong></h1>
+    <div class="subtitle">A visual preview of what running your store will actually feel like, adding a product, processing an order, checking inventory.</div>
+  </div>
+
+  <div class="container">
+
+    <!-- INTRO -->
+    <div class="intro">
+      <p>This is what the admin you log into will look like, built specifically for an ecommerce business like yours, not a general-purpose website builder retrofitted into a store. <strong>Three views are shown below: your dashboard, your product catalog, and what adding a product looks like.</strong></p>
+      <p>The screens are styled to give you a real sense of the experience. Layout and finishing details get refined during the build, but the structure and pace of using it are what you see here.</p>
+    </div>
+
+    <!-- VIEW 1: DASHBOARD -->
+    <div class="section-block">
+      <div class="section-eyebrow">View 01 · The dashboard</div>
+      <h2 class="section-title">What you see when you log in</h2>
+      <p class="section-sub">The first screen you'll see every morning, sales today, recent orders, anything that needs attention. No menus to navigate, no plugins to update, no "where do I find that again?"</p>
+
+      <div class="admin-frame">
+        <div class="admin-titlebar">
+          <div class="traffic-light tl-red"></div>
+          <div class="traffic-light tl-yellow"></div>
+          <div class="traffic-light tl-green"></div>
+          <div class="url-bar">admin.melissasbotanicals.com / dashboard</div>
+        </div>
+        <div class="admin-body">
+          <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-name">Melissa's</div>
+              <div class="sidebar-brand-sub">Admin</div>
+            </div>
+            <ul class="sidebar-nav">
+              <li class="active"><span class="icon">▦</span> Dashboard</li>
+              <li><span class="icon">▤</span> Orders</li>
+              <li><span class="icon">▥</span> Products</li>
+              <li><span class="icon">▧</span> Customers</li>
+              <li><span class="icon">▨</span> Inventory</li>
+              <li><span class="icon">◐</span> Discounts</li>
+              <li><span class="icon">⚙</span> Settings</li>
+            </ul>
+          </aside>
+
+          <main class="admin-main">
+            <div class="admin-toolbar">
+              <div>
+                <div class="admin-title">Good morning, Melissa</div>
+                <div class="admin-title-sub">Here's what's happening today</div>
+              </div>
+              <button class="btn-secondary">View full report →</button>
+            </div>
+
+            <div class="stat-row">
+              <div class="stat-card">
+                <div class="stat-label">Today's Sales</div>
+                <div class="stat-value">$847</div>
+                <div class="stat-change">↑ 18% vs last Tuesday</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Orders Today</div>
+                <div class="stat-value">14</div>
+                <div class="stat-change">↑ 4 vs last Tuesday</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Low Stock</div>
+                <div class="stat-value">3</div>
+                <div class="stat-change warn">Needs attention</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">New Customers</div>
+                <div class="stat-value">7</div>
+                <div class="stat-change">↑ this week</div>
+              </div>
+            </div>
+
+            <div class="data-card">
+              <div class="data-card-head">
+                <div class="data-card-title">Recent Orders</div>
+                <div class="data-card-link">View all →</div>
+              </div>
+              <table class="admin-table">
+                <thead>
+                  <tr><th>Order</th><th>Customer</th><th>Product</th><th>Total</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#2148</strong></td>
+                    <td>Sarah K., Edina MN</td>
+                    <td>P*!N Remedy Roll-On, Lavender Hydrosol</td>
+                    <td>$66.00</td>
+                    <td><span class="badge badge-active">Paid</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#2147</strong></td>
+                    <td>Linda M., Minneapolis MN</td>
+                    <td>Facial Rejuvenation Kit</td>
+                    <td>$525.00</td>
+                    <td><span class="badge badge-active">Paid</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#2146</strong></td>
+                    <td>James T., Bloomington MN</td>
+                    <td>Sleep Formula, Stress Relief</td>
+                    <td>$58.00</td>
+                    <td><span class="badge badge-active">Paid</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#2145</strong></td>
+                    <td>Karen B., St. Paul MN</td>
+                    <td>Hot Flash Relief, Wellness Honey</td>
+                    <td>$60.00</td>
+                    <td><span class="badge badge-active">Paid</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 2: PRODUCTS -->
+    <div class="section-block">
+      <div class="section-eyebrow">View 02 · Your products</div>
+      <h2 class="section-title">All 115 products, one clean list</h2>
+      <p class="section-sub">Searchable, filterable, sortable. Click any product to edit it, no Elementor, no page builders, no plugin conflicts. Just the product.</p>
+
+      <div class="admin-frame">
+        <div class="admin-titlebar">
+          <div class="traffic-light tl-red"></div>
+          <div class="traffic-light tl-yellow"></div>
+          <div class="traffic-light tl-green"></div>
+          <div class="url-bar">admin.melissasbotanicals.com / products</div>
+        </div>
+        <div class="admin-body">
+          <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-name">Melissa's</div>
+              <div class="sidebar-brand-sub">Admin</div>
+            </div>
+            <ul class="sidebar-nav">
+              <li><span class="icon">▦</span> Dashboard</li>
+              <li><span class="icon">▤</span> Orders</li>
+              <li class="active"><span class="icon">▥</span> Products</li>
+              <li><span class="icon">▧</span> Customers</li>
+              <li><span class="icon">▨</span> Inventory</li>
+              <li><span class="icon">◐</span> Discounts</li>
+              <li><span class="icon">⚙</span> Settings</li>
+            </ul>
+          </aside>
+
+          <main class="admin-main">
+            <div class="admin-toolbar">
+              <div>
+                <div class="admin-title">Products</div>
+                <div class="admin-title-sub">115 products · 3 categories</div>
+              </div>
+              <button class="btn-primary">+ Add product</button>
+            </div>
+
+            <div class="data-card">
+              <div class="data-card-head">
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <input type="text" placeholder="Search products..." style="border: 1px solid var(--app-border); border-radius: 5px; padding: 6px 12px; font-size: 12.5px; width: 240px; background: #fafbfc;">
+                  <button class="btn-secondary" style="padding: 6px 10px; font-size: 12px;">All categories ▾</button>
+                  <button class="btn-secondary" style="padding: 6px 10px; font-size: 12px;">All statuses ▾</button>
+                </div>
+                <div class="data-card-link">Export CSV ↓</div>
+              </div>
+              <table class="admin-table">
+                <thead>
+                  <tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="product-thumb"></span>
+                      <span class="product-name">P*!N Remedy Roll-On</span>
+                      <div class="product-sku" style="margin-left: 48px;">SKU: PR-5ML-01</div>
+                    </td>
+                    <td>Formulas / Pain</td>
+                    <td>$38.00</td>
+                    <td>42 in stock</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="product-thumb"></span>
+                      <span class="product-name">Facial Rejuvenation Kit</span>
+                      <div class="product-sku" style="margin-left: 48px;">SKU: FRK-001</div>
+                    </td>
+                    <td>Formulas / Facial</td>
+                    <td>$525.00</td>
+                    <td>8 in stock</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="product-thumb"></span>
+                      <span class="product-name">Acne Solution</span>
+                      <div class="product-sku" style="margin-left: 48px;">SKU: AS-5ML</div>
+                    </td>
+                    <td>Formulas / Skin</td>
+                    <td>$25.00, $52.00</td>
+                    <td>31 in stock</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="product-thumb"></span>
+                      <span class="product-name">Rose Otto</span>
+                      <div class="product-sku" style="margin-left: 48px;">SKU: ROT-002</div>
+                    </td>
+                    <td>Singles / Florals</td>
+                    <td>$128.00</td>
+                    <td><span style="color: var(--app-warning); font-weight: 500;">3 in stock</span></td>
+                    <td><span class="badge badge-low">Low</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="product-thumb"></span>
+                      <span class="product-name">Lavender Hydrosol</span>
+                      <div class="product-sku" style="margin-left: 48px;">SKU: LAV-HYD-08</div>
+                    </td>
+                    <td>Hydrosols</td>
+                    <td>$22.00</td>
+                    <td>67 in stock</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="product-thumb"></span>
+                      <span class="product-name">Sleep Formula</span>
+                      <div class="product-sku" style="margin-left: 48px;">SKU: SF-5ML</div>
+                    </td>
+                    <td>Formulas / Wellness</td>
+                    <td>$30.00</td>
+                    <td>54 in stock</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="product-thumb"></span>
+                      <span class="product-name">Hot Flash Relief</span>
+                      <div class="product-sku" style="margin-left: 48px;">SKU: HFR-001</div>
+                    </td>
+                    <td>Formulas / Wellness</td>
+                    <td>$32.00</td>
+                    <td>26 in stock</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: ADD PRODUCT -->
+    <div class="section-block">
+      <div class="section-eyebrow">View 03 · Adding a product</div>
+      <h2 class="section-title">Add a product in under two minutes</h2>
+      <p class="section-sub">One form. No layout to build, no Elementor panels, no custom CSS, no "save and hope." Fill in the fields, click save, the product appears on the site automatically. Works from your phone too.</p>
+
+      <div class="admin-frame">
+        <div class="admin-titlebar">
+          <div class="traffic-light tl-red"></div>
+          <div class="traffic-light tl-yellow"></div>
+          <div class="traffic-light tl-green"></div>
+          <div class="url-bar">admin.melissasbotanicals.com / products / new</div>
+        </div>
+        <div class="admin-body">
+          <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+              <div class="sidebar-brand-name">Melissa's</div>
+              <div class="sidebar-brand-sub">Admin</div>
+            </div>
+            <ul class="sidebar-nav">
+              <li><span class="icon">▦</span> Dashboard</li>
+              <li><span class="icon">▤</span> Orders</li>
+              <li class="active"><span class="icon">▥</span> Products</li>
+              <li><span class="icon">▧</span> Customers</li>
+              <li><span class="icon">▨</span> Inventory</li>
+              <li><span class="icon">◐</span> Discounts</li>
+              <li><span class="icon">⚙</span> Settings</li>
+            </ul>
+          </aside>
+
+          <main class="admin-main">
+            <div class="admin-toolbar">
+              <div>
+                <div class="admin-title-sub" style="margin-bottom: 4px;">← Back to products</div>
+                <div class="admin-title">Add new product</div>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-secondary">Save as draft</button>
+                <button class="btn-primary">Publish product</button>
+              </div>
+            </div>
+
+            <div class="form-preview">
+              <h3>Product details</h3>
+
+              <div class="form-row">
+                <div>
+                  <div class="form-label">Name</div>
+                  <div class="form-label-sub">The product title customers see</div>
+                </div>
+                <div class="form-field">Lavender Roll-On Travel Size</div>
+              </div>
+
+              <div class="form-row stacked">
+                <div class="form-label">Description</div>
+                <div class="form-field text-area">A compact 5ml roll-on of our wild-crafted French lavender, perfect for travel, anxiety on the go, and small moments of calm. Single-origin from our Provence partner since 2003.</div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <div class="form-label">Category</div>
+                </div>
+                <div class="form-field">Singles / Florals ▾</div>
+              </div>
+
+              <h3 style="margin-top: 28px;">Pricing & Inventory</h3>
+
+              <div class="form-row">
+                <div class="form-label">Price</div>
+                <div class="form-field with-prefix">
+                  <span>$</span><span>28.00</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-label">SKU</div>
+                <div class="form-field">LAV-ROLL-5ML</div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-label">Stock on hand</div>
+                <div class="form-field">120</div>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn-secondary">Cancel</button>
+                <button class="btn-secondary">Save as draft</button>
+                <button class="btn-primary">Publish product</button>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="section-block">
+      <div class="section-eyebrow">The difference</div>
+      <h2 class="section-title">A typical Tuesday morning</h2>
+      <p class="section-sub">Three things you'd do on a normal day, today versus the new admin.</p>
+
+      <div class="compare">
+        <div class="compare-card today">
+          <div class="compare-label">Today</div>
+          <h4>Add a new product</h4>
+          <p>Log into WordPress. Click Products. Click Add New. Fill in fields. Switch to Elementor to build the page layout. <em>Hope you remember which template that other product used.</em> Copy elements from an existing page. Paste. Adjust CSS. Preview. Find that something is broken because of a plugin conflict. Fix. Save. Pray.</p>
+          <p>Total time: <em>30-60 minutes, and it usually requires a developer.</em></p>
+        </div>
+        <div class="compare-card new">
+          <div class="compare-label">New admin</div>
+          <h4>Add a new product</h4>
+          <p>Open the admin. Click <em>+ Add product</em>. Fill in name, description, category, price, photo. Click Publish.</p>
+          <p>Total time: <em>about two minutes. Done from your phone if you want.</em></p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="compare-card today">
+          <div class="compare-label">Today</div>
+          <h4>Change a product price</h4>
+          <p>Log into WordPress. Find the product. Edit. <em>Find which Elementor block has the price.</em> Edit the block. Hope you got the right one. Save. Clear cache. Check the front-end. Cache didn't clear. Wait. Refresh.</p>
+        </div>
+        <div class="compare-card new">
+          <div class="compare-label">New admin</div>
+          <h4>Change a product price</h4>
+          <p>Click the product. Edit price. Click Save. <em>It's live on the site within seconds.</em></p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="compare-card today">
+          <div class="compare-label">Today</div>
+          <h4>Check what's low on stock</h4>
+          <p><em>You don't, really.</em> WooCommerce has inventory but the report is buried, and you find out you're out of something when a customer emails to ask.</p>
+        </div>
+        <div class="compare-card new">
+          <div class="compare-label">New admin</div>
+          <h4>Check what's low on stock</h4>
+          <p>The dashboard shows you on login. You also get an email when something crosses your threshold. <em>You catch low stock before customers do.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <h2>This is the admin you'll actually use</h2>
+      <p>The current site has a powerful admin you avoid. The new one is built specifically for your business, clean, fast, and pleasant. You'll see this for the first time on staging before launch, so there's no surprise about what you're getting.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
