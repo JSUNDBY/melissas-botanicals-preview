@@ -2,298 +2,493 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Melissa&#39;s Botanicals: Pitch Package</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melissa's Botanicals: A Modernization</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --brand-red: #b2292e;
-      --brand-red-soft: #fbeaec;
-      --brand-dark: #1a1a1a;
-      --brand-cream: #faf8f5;
-      --brand-warm: #f5f0eb;
-      --text: #2c2c2c;
-      --text-light: #6b6b6b;
-      --border: #e5e0db;
-      --bg: #faf8f5;
-      --accent-gold: #b89456;
+      /* Apothecary palette */
+      --linen: #f5f0e7;
+      --paper: #faf6ee;
+      --paper-warm: #f0eadd;
+      --paper-deep: #e8e0cf;
+
+      --ink: #2a2823;
+      --ink-soft: #5a554c;
+      --ink-mute: #8a8276;
+      --ink-faint: #b5ac9b;
+
+      --sage: #6b7d68;
+      --sage-deep: #4d5b4b;
+      --sage-soft: #e0e6dc;
+      --sage-line: #c3cdbe;
+
+      --ochre: #b8945e;
+      --terracotta: #b8765e;
+
+      --rule: #ddd5c3;
+      --rule-soft: #e8e0cf;
+
+      --shadow-soft: 0 1px 1px rgba(42, 40, 35, 0.03), 0 6px 18px rgba(42, 40, 35, 0.04);
+
+      --serif: 'Cormorant Garamond', 'EB Garamond', 'Garamond', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+
+    html { font-size: 16px; }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
+      font-family: var(--sans);
+      background-color: var(--linen);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      color: var(--ink);
       font-weight: 400;
-      min-height: 100vh;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .hero {
-      background: var(--brand-dark);
-      color: white;
-      padding: 80px 40px 64px;
-      text-align: center;
-      position: relative;
+    /* === ELEMENTS === */
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 2px;
-      background: var(--brand-red);
+
+    .serif-italic {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* === ORNAMENT === */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--sage-line);
+      margin: 0 auto;
+      max-width: 180px;
+    }
+    .ornament hr {
+      flex: 1;
+      border: none;
+      border-top: 1px solid currentColor;
+      margin: 0;
+    }
+    .ornament svg {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      color: var(--sage);
+    }
+
+    /* === HERO === */
+    .hero {
+      padding: 84px 36px 76px;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
     }
     .hero .eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      opacity: 0.55;
-      margin-bottom: 16px;
+      margin-bottom: 26px;
     }
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 52px;
+      font-family: var(--serif);
       font-weight: 400;
-      margin-bottom: 14px;
-      letter-spacing: 0.5px;
-      line-height: 1.15;
+      font-size: clamp(46px, 7vw, 76px);
+      line-height: 1.04;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
     }
-    .hero h1 strong { font-weight: 600; color: #f0d5d6; }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--sage-deep);
+    }
     .hero .subtitle {
-      font-size: 15px;
-      opacity: 0.65;
-      max-width: 520px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      max-width: 540px;
+      margin: 0 auto 36px;
     }
-    .hero .team {
-      display: inline-flex;
-      gap: 36px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      font-size: 12.5px;
-      opacity: 0.7;
+    .hero .meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-mute);
+      letter-spacing: 0.04em;
     }
-    .hero .team-member { text-align: center; }
-    .hero .team-role {
-      display: block;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      opacity: 0.55;
-      margin-bottom: 3px;
+    .hero .meta strong {
+      color: var(--ink-soft);
+      font-weight: 500;
     }
-    .hero .team-name { font-weight: 500; }
 
-    .container {
+    /* === SECTION === */
+    .section {
       max-width: 880px;
       margin: 0 auto;
-      padding: 56px 24px 64px;
+      padding: 72px 36px;
     }
+    .section + .section { padding-top: 0; }
 
-    .intro {
-      background: white;
-      border-left: 3px solid var(--brand-red);
-      padding: 26px 30px;
-      margin-bottom: 40px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    .section-head {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
     }
-    .intro p {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text);
+    .section-head .eyebrow {
+      margin-bottom: 20px;
     }
-    .intro strong { color: var(--brand-dark); }
-
-    .section-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: var(--brand-red);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
+    .section-head h2 {
+      font-family: var(--serif);
       font-weight: 400;
-      margin-bottom: 24px;
-      color: var(--brand-dark);
+      font-size: clamp(32px, 4.4vw, 44px);
+      line-height: 1.14;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+      margin-bottom: 18px;
+    }
+    .section-head h2 em {
+      font-style: italic;
+      color: var(--sage-deep);
+    }
+    .section-head p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin: 0 auto;
     }
 
+    /* === EXECUTIVE PILLARS === */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--rule-soft);
+      border: 1px solid var(--rule-soft);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .pillar {
+      background: var(--paper);
+      padding: 36px 32px;
+    }
+    .pillar .pillar-label {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 14px;
+    }
+    .pillar h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .pillar p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    /* === DOCUMENT CARDS === */
     .docs {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-bottom: 48px;
+      gap: 18px;
     }
-
     .doc-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--brand-red);
-      border-radius: 4px;
-      padding: 28px 32px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 36px 40px;
       text-decoration: none;
-      color: var(--text);
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-      transition: box-shadow 0.15s, transform 0.15s;
+      color: inherit;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 28px;
+      align-items: start;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
     .doc-card:hover {
-      box-shadow: 0 4px 18px rgba(178,41,46,0.10);
+      border-color: var(--sage);
       transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
     }
-
     .doc-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
       font-size: 42px;
-      font-weight: 600;
-      color: var(--brand-red);
       line-height: 1;
-      min-width: 50px;
-    }
-
-    .doc-meta {
-      flex: 1;
+      color: var(--sage);
+      letter-spacing: -0.02em;
     }
     .doc-meta .doc-eyebrow {
+      font-family: var(--sans);
       font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-light);
-      font-weight: 600;
-      margin-bottom: 4px;
+      color: var(--ink-mute);
+      margin-bottom: 8px;
     }
     .doc-meta h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--brand-dark);
-      margin-bottom: 6px;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 8px;
     }
     .doc-meta p {
-      font-size: 13.5px;
-      color: var(--text-light);
-      line-height: 1.65;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--ink-soft);
     }
     .doc-arrow {
-      font-size: 22px;
-      color: var(--brand-red);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--sage);
       align-self: center;
-      transition: transform 0.15s;
+      transition: transform 0.3s ease;
     }
-    .doc-card:hover .doc-arrow { transform: translateX(4px); }
+    .doc-card:hover .doc-arrow {
+      transform: translateX(6px);
+    }
 
-    .footer {
+    /* === NEXT STEP === */
+    .next-step {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 56px 44px;
       text-align: center;
-      padding: 32px 20px 48px;
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
-      font-size: 12px;
-      color: var(--text-light);
+    }
+    .next-step .eyebrow {
+      margin-bottom: 18px;
+    }
+    .next-step h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .next-step h2 em {
+      font-style: italic;
+      color: var(--sage-deep);
+    }
+    .next-step p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      max-width: 520px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 768px) {
-      .hero { padding: 56px 20px 44px; }
-      .hero h1 { font-size: 36px; }
-      .hero .team { flex-direction: column; gap: 14px; }
-      .container { padding: 40px 18px 48px; }
-      .section-title { font-size: 24px; }
-      .doc-card { flex-direction: column; gap: 14px; padding: 22px 24px; }
-      .doc-num { font-size: 32px; min-width: 0; }
-      .doc-arrow { align-self: flex-end; }
+    /* === SIGN-OFF === */
+    .signoff {
+      text-align: center;
+      padding: 64px 36px 80px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .signoff .ornament {
+      margin-bottom: 28px;
+    }
+    .signoff p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .signoff .credit {
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--ink-mute);
+      margin-top: 20px;
+    }
+    .signoff .credit strong { color: var(--ink-soft); font-weight: 500; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 720px) {
+      .hero { padding: 56px 24px 48px; }
+      .hero .subtitle { font-size: 17px; }
+      .section { padding: 52px 24px; }
+      .section-head { margin-bottom: 40px; }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar { padding: 30px 26px; }
+      .doc-card {
+        grid-template-columns: 60px 1fr;
+        gap: 20px;
+        padding: 28px 26px;
+      }
+      .doc-arrow {
+        display: none;
+      }
+      .doc-num { font-size: 36px; }
+      .doc-meta h3 { font-size: 21px; }
+      .next-step { padding: 44px 28px; }
+      .next-step h2 { font-size: 28px; }
+      .signoff { padding: 48px 24px 60px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div class="eyebrow">Pitch Package · May 2026</div>
-    <h1><strong>Melissa's Botanicals</strong></h1>
-    <div class="subtitle">A new website, an owner-managed catalog, and growth services for the next phase of the business.</div>
-    <div class="team">
-      <div class="team-member">
-        <span class="team-role">Producer</span>
-        <span class="team-name">Dawn Drouillard</span>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">Presentation for Melissa Farris</div>
+    <h1>Melissa's <em>Botanicals</em></h1>
+    <p class="subtitle">A modernization of how customers discover, trust, and purchase your work.</p>
+    <div class="meta">Prepared by <strong>Josh Sundby</strong> & <strong>Dawn Drouillard</strong> · 2026</div>
+  </header>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">What this solves</div>
+      <h2>This is not simply a website rebuild.</h2>
+      <p>It is a modernization of how customers find your formulas, how they come to trust them, and how you run the business behind it. The presentation that follows lays out the work in four short documents.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-label">For your customers</div>
+        <h3>Discovery, not scrolling.</h3>
+        <p>A site that helps a visitor find the right formula for their life in seconds, not a wall of 115 products to scroll past. Search, intelligent filters, and condition-based pathways replace the current single-page catalog.</p>
       </div>
-      <div class="team-member">
-        <span class="team-role">Design & Build</span>
-        <span class="team-name">Josh Sundby</span>
+      <div class="pillar">
+        <div class="pillar-label">For your operation</div>
+        <h3>A calmer admin.</h3>
+        <p>Adding a product becomes a two-minute task instead of a half-day project. The interface you log into is purpose-built for an ecommerce business — no Elementor, no plugins to update, no developer dependency for routine changes.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-label">For the brand</div>
+        <h3>A presentation worthy of the work.</h3>
+        <p>Twenty-seven years of clinical aromatherapy, French training, and small-batch sourcing — all reflected in a site that feels as considered as the formulas themselves.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-label">For long-term growth</div>
+        <h3>Foundations that compound.</h3>
+        <p>Modern commerce levers — programmatic SEO, email automation, founder-led content, subscriptions — designed to grow visibility and revenue across years, not weeks.</p>
       </div>
     </div>
+  </section>
+
+  <div class="ornament" style="margin: 24px auto 0;">
+    <hr>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+      <path d="M12 4 V20"/>
+      <path d="M12 9 C9 9 7 10.5 6 12.5"/>
+      <path d="M12 9 C15 9 17 10.5 18 12.5"/>
+      <path d="M12 14 C9.5 14 8 15 7 16.5"/>
+      <path d="M12 14 C14.5 14 16 15 17 16.5"/>
+    </svg>
+    <hr>
   </div>
 
-  <div class="container">
-
-    <div class="intro">
-      <p>This package contains four documents. <strong>Start with the site audit</strong>, what's on the current site and what the new build addresses. <strong>Then read the pre-proposal</strong>, the new website itself plus the growth services we can layer in alongside it. <strong>The catalog mockup</strong> is a visual preview of what customers will see. <strong>The admin mockup</strong> is a visual preview of what <em>you</em> will see, running your store on the new system.</p>
+  <!-- DOCUMENTS -->
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">The presentation</div>
+      <h2>Four documents, <em>read in order.</em></h2>
+      <p>Start with the audit. Then the strategy. The two mockups close the picture, customer-facing first, then your own.</p>
     </div>
-
-    <div class="section-label">The documents</div>
-    <h2 class="section-title">Click through in order</h2>
 
     <div class="docs">
 
       <a href="site-report.html" class="doc-card">
-        <div class="doc-num">01</div>
+        <div class="doc-num">i.</div>
         <div class="doc-meta">
-          <div class="doc-eyebrow">Audit · 10 min read</div>
-          <h3>Site Audit & Scope of Work</h3>
-          <p>What we found on the current site, in plain English. Thirteen findings, six work areas, every observation tied back to a business impact you can act on.</p>
+          <div class="doc-eyebrow">The audit · 10 minutes</div>
+          <h3>What's on the current site</h3>
+          <p>Thirteen observations from the live site, each one translated from technical finding into business impact. Honest, specific, and the basis for everything that follows.</p>
         </div>
         <div class="doc-arrow">→</div>
       </a>
 
       <a href="proposal.html" class="doc-card">
-        <div class="doc-num">02</div>
+        <div class="doc-num">ii.</div>
         <div class="doc-meta">
-          <div class="doc-eyebrow">Pre-proposal · 12 min read</div>
-          <h3>The New Website + Growth Services</h3>
-          <p>The new customer-facing site plus optional growth services you can layer in, video, content, email automation, subscriptions, wholesale, and more. Pricing is settled in the scope conversation, not in this document.</p>
+          <div class="doc-eyebrow">The strategy · 12 minutes</div>
+          <h3>The new site & the system around it</h3>
+          <p>The new website itself, plus the layered services that turn it into a commerce system: video, programmatic SEO, email, content, subscriptions. Phased into what to launch with, and what to add over time.</p>
         </div>
         <div class="doc-arrow">→</div>
       </a>
 
       <a href="mockup.html" class="doc-card">
-        <div class="doc-num">03</div>
+        <div class="doc-num">iii.</div>
         <div class="doc-meta">
-          <div class="doc-eyebrow">Visual preview · interactive</div>
-          <h3>Catalog Mockup</h3>
-          <p>An interactive preview of what your customers will see, real search, real filters, real product detail modals. Click around to get a feel.</p>
+          <div class="doc-eyebrow">The customer experience · interactive</div>
+          <h3>What your customers will see</h3>
+          <p>A working preview of the new catalog. Real search, real filters, real product cards. Click anything to feel the pace.</p>
         </div>
         <div class="doc-arrow">→</div>
       </a>
 
       <a href="admin-mockup.html" class="doc-card">
-        <div class="doc-num">04</div>
+        <div class="doc-num">iv.</div>
         <div class="doc-meta">
-          <div class="doc-eyebrow">Visual preview · the new admin</div>
-          <h3>Admin Mockup</h3>
-          <p>A visual preview of what <em>you</em> will see, the dashboard, the products list, the "add a product" form, running your store on the new admin. Includes a side-by-side of "today vs. new" for three common tasks.</p>
+          <div class="doc-eyebrow">The admin experience · visual</div>
+          <h3>What <em>you</em> will see</h3>
+          <p>A visual preview of your new admin. The dashboard, the product list, the way adding a product will actually feel. Plus a side-by-side of today vs. the new, for three tasks you'll do most.</p>
         </div>
         <div class="doc-arrow">→</div>
       </a>
 
     </div>
+  </section>
 
-    <div class="section-label">Next step</div>
-    <h2 class="section-title">An in-person visit at the Shoppe</h2>
-    <div class="intro" style="margin-bottom: 0;">
-      <p>Once you've had a chance to look through the package, Dawn will set up the visit. She and Josh come to your Bloomington Shoppe in person to walk through everything, answer questions, and align on which growth services to include. The formal proposal, with fixed pricing and timeline, lands in your inbox within 48 hours of that visit.</p>
+  <!-- NEXT STEP -->
+  <section class="section">
+    <div class="next-step">
+      <div class="eyebrow">The next step</div>
+      <h2>An hour at <em>the Shoppe</em></h2>
+      <p>When you've had a chance to read through, Dawn will arrange a visit. She and Josh come to your Bloomington Shoppe in person to walk through everything, answer what comes up, and align on which services belong in the first phase. The formal proposal follows within forty-eight hours.</p>
     </div>
+  </section>
 
-  </div>
-
-  <div class="footer">
-    Prepared for Melissa Farris · Melissa's Botanicals · Bloomington, MN
+  <!-- SIGN-OFF -->
+  <div class="signoff">
+    <div class="ornament">
+      <hr>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M12 4 V20"/>
+        <path d="M12 9 C9 9 7 10.5 6 12.5"/>
+        <path d="M12 9 C15 9 17 10.5 18 12.5"/>
+        <path d="M12 14 C9.5 14 8 15 7 16.5"/>
+        <path d="M12 14 C14.5 14 16 15 17 16.5"/>
+      </svg>
+      <hr>
+    </div>
+    <p>"Built for the next decade of the work, not the last one."</p>
+    <div class="credit">Prepared for <strong>Melissa Farris</strong> · Melissa's Botanicals · Bloomington, Minnesota</div>
   </div>
 
 </body>
